@@ -2,3 +2,4 @@
 /typings
 /app/*.js
 /app/*.js.map
+/vendor.js

@@ -45,7 +45,6 @@ export class LoginFormComponent {
     }
     
     public title = 'Login!'
-
     public submitted: boolean;
 
     login = (submitEvent: Event, model: Credentials, isValid: boolean) => {

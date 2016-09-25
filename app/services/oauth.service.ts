@@ -27,6 +27,6 @@ export class OAuth {
     }
     
     getToken  = () => {
-      this.ls.getJSON(this.localStorageKey);
+      return this.ls.getJSON(this.localStorageKey);
     }
 }

@@ -6,7 +6,7 @@ export class LS {
        return localStorage.getItem(localStorageKey); 
     }
     getJSON = (localStorageKey: string) => {
-       return localStorage.getItem(JSON.parse(localStorageKey)); 
+       return JSON.parse(localStorage.getItem(localStorageKey)); 
     }
     set = (localStorageKey: string, value: string) => {
        localStorage.setItem(localStorageKey, value); 

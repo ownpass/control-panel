@@ -10,7 +10,7 @@ import { CredentialsValidator } from './forms/credentials.validator';
     providers: [OAuth, CredentialsValidator],
     template: `
         <form [formGroup]="myForm" novalidate (submit)="login($event, myForm.value, myForm.valid)">
-            <h1>{{title}}</h1>
+            <h2>{{title}}</h2>
             <ul [hidden]="loggedin"> 
                 <li>
                     <input type="text" placeholder="username" formControlName="username"/>
@@ -44,8 +44,8 @@ import { CredentialsValidator } from './forms/credentials.validator';
 export class LoginFormComponent {
     constructor(private _fb: FormBuilder, private oAuth: OAuth, private cv: CredentialsValidator) {}
     
-    title = 'Welcome!'
-    
+    title = 'Login!'
+
     public submitted: boolean;
     public loggedin: boolean;
     public loggedInInfo: Object;

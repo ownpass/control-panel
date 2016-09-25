@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { OAuth } from './services/oauth.service';
+import { LS } from './services/localstorage.service';
 import { Credentials } from './interfaces/credentials.interface';
 import { CredentialsValidator } from './forms/credentials.validator';
+import { Router } from '@angular/router';
+
 
 
 @Component({
     selector: 'login-form',
-    providers: [OAuth, CredentialsValidator],
+    providers: [OAuth, CredentialsValidator, LS],
     template: `
         <form [formGroup]="myForm" novalidate (submit)="login($event, myForm.value, myForm.valid)">
             <h2>{{title}}</h2>
@@ -29,7 +32,7 @@ import { CredentialsValidator } from './forms/credentials.validator';
                 </li>
             </ul>
             <div [hidden]="!loggedin">
-                <h2>you are logged in ;)</h2>
+                <h3>you are logged in ;)</h3>
                 <p>{{loggedInInfo}}</p>
             </div>
         </form>
@@ -42,7 +45,11 @@ import { CredentialsValidator } from './forms/credentials.validator';
 })
 
 export class LoginFormComponent {
-    constructor(private _fb: FormBuilder, private oAuth: OAuth, private cv: CredentialsValidator) {}
+    constructor(private _fb: FormBuilder, private oAuth: OAuth, private cv: CredentialsValidator, private ls: LS, private router: Router) {
+        // check if the user is logged in!
+    }
+
+
     
     title = 'Login!'
 
@@ -61,7 +68,9 @@ export class LoginFormComponent {
                     console.log(response)
                     if (response.status === 200) {
                         that.loggedin = true;
-                        that.loggedInInfo = response['_body']; 
+                        that.loggedInInfo = response['_body'];
+                        that.ls.set('oauth', JSON.parse(response['_body']));
+                        that.router.navigateByUrl('welcome');
                     }
                 },
                 error => {

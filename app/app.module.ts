@@ -7,15 +7,16 @@ import { HttpModule } from '@angular/http';
 import { routing, appRoutingProviders }  from './app.routing';
 import { PageNotFoundComponent} from './page-not-found.component';
 import { WelcomeComponent } from './welcome.component';
+import { LS } from './services/localstorage.service'
 
 
 //enableProdMode();
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, routing ],
+  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, routing, ],
   declarations: [ AppComponent, LoginFormComponent, PageNotFoundComponent, WelcomeComponent],
   bootstrap:    [ AppComponent ],
-  providers:    [ appRoutingProviders ],
+  providers:    [ appRoutingProviders, LS ],
 })
 
 

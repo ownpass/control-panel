@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { OAuth } from './services/oauth.service';
-import { LS } from './services/localstorage.service';
 import { Credentials } from './interfaces/credentials.interface';
 import { CredentialsValidator } from './forms/credentials.validator';
 import { Router } from '@angular/router';
@@ -10,11 +9,11 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'login-form',
-    providers: [OAuth, CredentialsValidator, LS],
+    providers: [OAuth, CredentialsValidator],
     template: `
         <form [formGroup]="myForm" novalidate (submit)="login($event, myForm.value, myForm.valid)">
             <h2>{{title}}</h2>
-            <ul [hidden]="loggedin"> 
+            <ul> 
                 <li>
                     <input type="text" placeholder="username" formControlName="username"/>
                     <small [hidden]="myForm.controls.username.valid || (myForm.controls.username.pristine && !submitted)">
@@ -31,10 +30,6 @@ import { Router } from '@angular/router';
                     <button>klik</button>
                 </li>
             </ul>
-            <div [hidden]="!loggedin">
-                <h3>you are logged in ;)</h3>
-                <p>{{loggedInInfo}}</p>
-            </div>
         </form>
     `,
     styles: [`
@@ -45,17 +40,13 @@ import { Router } from '@angular/router';
 })
 
 export class LoginFormComponent {
-    constructor(private _fb: FormBuilder, private oAuth: OAuth, private cv: CredentialsValidator, private ls: LS, private router: Router) {
+    constructor(private _fb: FormBuilder, private oAuth: OAuth, private cv: CredentialsValidator, private router: Router) {
         // check if the user is logged in!
     }
-
-
     
-    title = 'Login!'
+    public title = 'Login!'
 
     public submitted: boolean;
-    public loggedin: boolean;
-    public loggedInInfo: Object;
 
     login = (submitEvent: Event, model: Credentials, isValid: boolean) => {
         let that = this;
@@ -65,11 +56,8 @@ export class LoginFormComponent {
             this.oAuth.login(model)
             .subscribe(
                 response => {
-                    console.log(response)
-                    if (response.status === 200) {
-                        that.loggedin = true;
-                        that.loggedInInfo = response['_body'];
-                        that.ls.set('oauth', JSON.parse(response['_body']));
+                    if (response.status === 200 && response.hasOwnProperty('_body')) {
+                        that.oAuth.setToken(response['_body'])
                         that.router.navigateByUrl('welcome');
                     }
                 },

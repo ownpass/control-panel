@@ -7,8 +7,10 @@ import { HttpModule } from '@angular/http';
 import { routing, appRoutingProviders }  from './app.routing';
 import { PageNotFoundComponent} from './page-not-found.component';
 import { WelcomeComponent } from './welcome.component';
+import { MyVaultComponent } from './my-vault.component';
 import { LS } from './services/localstorage.service';
 import { User } from './services/user.service';
+import { Vault } from './services/vault.service';
 import { OAuth } from './services/oauth.service';
 
 
@@ -16,9 +18,9 @@ import { OAuth } from './services/oauth.service';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, routing, ],
-  declarations: [ AppComponent, LoginFormComponent, PageNotFoundComponent, WelcomeComponent],
+  declarations: [ AppComponent, LoginFormComponent, PageNotFoundComponent, WelcomeComponent, MyVaultComponent],
   bootstrap:    [ AppComponent ],
-  providers:    [ appRoutingProviders, LS, User, OAuth ],
+  providers:    [ appRoutingProviders, LS, User, OAuth, Vault ],
 })
 
 

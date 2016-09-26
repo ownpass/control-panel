@@ -5,8 +5,7 @@ import { User} from '../services/user'
 @Component({
   selector: 'my-app',
   template: `
-    <h2>welcome {{ user.name }}</h2>
-    <p>You should be logged in ;)</p>
+    <h2>Welcome {{ user.name }}!</h2>
     <hr />
     <my-vault><my-vault>
   `,

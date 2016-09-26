@@ -33,6 +33,17 @@ import { Router } from '@angular/router';
         </form>
     `,
     styles: [`
+        form {
+            width: 250px;
+            margin: 5em auto;
+            position: relative;
+            border: 1px solid #369;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
         small {
             color: red;
         }

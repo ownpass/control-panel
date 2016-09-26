@@ -14,4 +14,9 @@ export class LS {
     setJSON = (localStorageKey: string, value: JSON) => {
        localStorage.setItem(localStorageKey, JSON.stringify(value)); 
     }
+    remove = (localStorageKey: string) => {
+       localStorage.removeItem(localStorageKey); 
+    }
+    
+
 }

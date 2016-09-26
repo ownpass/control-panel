@@ -27,17 +27,27 @@ import { Router } from '@angular/router';
                     </small>
                 </li>
                 <li>
-                    <button>klik</button>
+                    <button>Login</button>
                 </li>
             </ul>
         </form>
     `,
     styles: [`
         form {
-            width: 250px;
+            width: 300px;
             margin: 5em auto;
             position: relative;
             border: 1px solid #369;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0 1em;
+            padding: 0;
+        }
+
+        li {
+            margin: 0 0 1em 0;
         }
 
         h2 {
@@ -45,6 +55,7 @@ import { Router } from '@angular/router';
         }
 
         small {
+            display: block;
             color: red;
         }
     `]

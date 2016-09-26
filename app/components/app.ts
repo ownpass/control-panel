@@ -1,16 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
   template: `
     <h1>Ownpass</h1>
     <router-outlet></router-outlet>
-    <nav>
-      <a routerLink="/login" routerLinkActive="active">login</a>
-      <a routerLink="/welcome" routerLinkActive="active">Secure page</a>
-      <a routerLink="/fertert" routerLinkActive="active">404</a>
-    </nav>
+    <my-navigation></my-navigation>
   `,
 })
 
-export class AppComponent { }
+export class AppComponent {}

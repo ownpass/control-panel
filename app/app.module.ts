@@ -8,6 +8,7 @@ import { routing, appRoutingProviders }  from './app.routing';
 import { PageNotFoundComponent} from './components/page-not-found';
 import { WelcomeComponent } from './components/welcome';
 import { MyVaultComponent } from './components/my-vault';
+import { NavigationComponent } from './components/navigation';
 import { LS } from './services/localstorage';
 import { User } from './services/user';
 import { Vault } from './services/vault';
@@ -29,7 +30,8 @@ import { OAuth } from './services/oauth';
     LoginFormComponent, 
     PageNotFoundComponent, 
     WelcomeComponent, 
-    MyVaultComponent
+    MyVaultComponent,
+    NavigationComponent
   ],
   bootstrap:[
     AppComponent

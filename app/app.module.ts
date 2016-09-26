@@ -1,26 +1,46 @@
 import { NgModule, enableProdMode }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent }   from './app.component';
-import { LoginFormComponent }   from './login-form.component';
+import { AppComponent }   from './components/app';
+import { LoginFormComponent }   from './components/login-form';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing, appRoutingProviders }  from './app.routing';
-import { PageNotFoundComponent} from './page-not-found.component';
-import { WelcomeComponent } from './welcome.component';
-import { MyVaultComponent } from './my-vault.component';
-import { LS } from './services/localstorage.service';
-import { User } from './services/user.service';
-import { Vault } from './services/vault.service';
-import { OAuth } from './services/oauth.service';
+import { PageNotFoundComponent} from './components/page-not-found';
+import { WelcomeComponent } from './components/welcome';
+import { MyVaultComponent } from './components/my-vault';
+import { LS } from './services/localstorage';
+import { User } from './services/user';
+import { Vault } from './services/vault';
+import { OAuth } from './services/oauth';
 
 
 //enableProdMode();
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, routing, ],
-  declarations: [ AppComponent, LoginFormComponent, PageNotFoundComponent, WelcomeComponent, MyVaultComponent],
-  bootstrap:    [ AppComponent ],
-  providers:    [ appRoutingProviders, LS, User, OAuth, Vault ],
+  imports: [ 
+    BrowserModule, 
+    FormsModule, 
+    ReactiveFormsModule, 
+    HttpModule, 
+    routing,
+  ],
+  declarations: [ 
+    AppComponent, 
+    LoginFormComponent, 
+    PageNotFoundComponent, 
+    WelcomeComponent, 
+    MyVaultComponent
+  ],
+  bootstrap:[
+    AppComponent
+  ],
+  providers:[
+    appRoutingProviders,
+    LS,
+    User,
+    OAuth,
+    Vault
+  ],
 })
 
 

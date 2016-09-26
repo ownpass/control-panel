@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
-import { OAuth } from './services/oauth.service';
-import { Credentials } from './interfaces/credentials.interface';
-import { CredentialsValidator } from './forms/credentials.validator';
+import { OAuth } from '../services/oauth';
+import { Credentials } from '../interfaces/credentials';
+import { CredentialsValidator } from '../forms/credentials-validator';
 import { Router } from '@angular/router';
 
 

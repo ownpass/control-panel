@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Vault} from './services/vault.service'
+import { Vault} from '../services/vault'
 
 @Component({
   selector: 'my-vault',

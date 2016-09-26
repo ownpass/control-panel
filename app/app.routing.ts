@@ -1,9 +1,9 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PageNotFoundComponent} from './page-not-found.component';
-import { AppComponent} from './app.component';
-import { LoginFormComponent }   from './login-form.component';
-import { WelcomeComponent } from './welcome.component';
+import { PageNotFoundComponent} from './components/page-not-found';
+import { AppComponent} from './components/app';
+import { LoginFormComponent }   from './components/login-form';
+import { WelcomeComponent } from './components/welcome';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginFormComponent },

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import { OAuth } from './oauth.service';
-import { LocalStorageToken } from '../interfaces/localstorage-token.interface';
+import { OAuth } from './oauth';
+import { LocalStorageToken } from '../interfaces/localstorage-token';
 import { Router } from '@angular/router';
 import 'rxjs/Rx';
 import {Observable} from 'rxjs/Observable';

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
-import { Credentials } from '../interfaces/credentials.interface';
-import { LS } from './localstorage.service';
-import { LocalStorageToken } from '../interfaces/localstorage-token.interface';
+import { Credentials } from '../interfaces/credentials';
+import { LS } from './localstorage';
+import { LocalStorageToken } from '../interfaces/localstorage-token';
 
 @Injectable()
 export class OAuth {

@@ -3,11 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent} from './components/page-not-found';
 import { AppComponent} from './components/app';
 import { LoginFormComponent }   from './components/login-form';
-import { WelcomeComponent } from './components/welcome';
+import { ControlPanelComponent } from './components/control-panel';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginFormComponent },
-  { path: 'welcome', component: WelcomeComponent },
+  { path: 'control-panel', component: ControlPanelComponent },
   { path: '', component: LoginFormComponent },
   { path: '**', component: PageNotFoundComponent }
 ];

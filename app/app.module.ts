@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing, appRoutingProviders }  from './app.routing';
 import { PageNotFoundComponent} from './components/page-not-found';
-import { WelcomeComponent } from './components/welcome';
+import { ControlPanelComponent } from './components/control-panel';
 import { MyVaultComponent } from './components/my-vault';
 import { NavigationComponent } from './components/navigation';
 import { LS } from './services/localstorage';
@@ -29,7 +29,7 @@ import { OAuth } from './services/oauth';
     AppComponent, 
     LoginFormComponent, 
     PageNotFoundComponent, 
-    WelcomeComponent, 
+    ControlPanelComponent, 
     MyVaultComponent,
     NavigationComponent
   ],

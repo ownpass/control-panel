@@ -1,0 +1,23 @@
+.wrapper {
+    height: calc(100vh - 40px);
+    min-height: 600px;
+    width: 100%;
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    margin: 20px auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+}
+
+h2 {
+    margin: 0;
+}
+
+.heading {
+    height: 50px;
+    padding: 0;
+    background: #f00;
+    line-height: 50px;
+    text-indent: 20px;
+    color: #fff;
+}

@@ -55,7 +55,7 @@ export class LoginFormComponent {
                 response => {
                     if (response.status === 200 && response.hasOwnProperty('_body')) {
                         that.oAuth.setToken(response['_body'])
-                        that.router.navigateByUrl('welcome');
+                        that.router.navigateByUrl('control-panel');
                     }
                 },
                 error => {

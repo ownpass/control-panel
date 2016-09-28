@@ -4,17 +4,19 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'my-app',
+  selector: 'control-panel',
   template: `
-    <h2>Welcome {{ user.name }}!</h2>
-    <hr />
-    <my-navigation></my-navigation>
-    <hr />
-    <my-vault><my-vault>
+    <div class="wrapper">
+      <div class="heading">Ownpass</div>
+      <h2>Welcome {{ user.name }}!</h2>
+      <my-navigation></my-navigation>
+      <my-vault></my-vault>
+    </div>
   `,
+  styleUrls: ['app/components/control-panel.css']
 })
 
-export class WelcomeComponent {
+export class ControlPanelComponent {
   that = this;
   public user;
 

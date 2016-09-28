@@ -9,7 +9,7 @@ import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class Vault {
-    url: string = 'http://staging-api.ownpass.io/api/credential';
+    url: string = 'http://staging-api.ownpass.io/api/user/credential';
     constructor(private http: Http, private oAuth: OAuth, private router: Router) {}
 
     get = () => {

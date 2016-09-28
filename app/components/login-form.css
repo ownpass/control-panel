@@ -1,0 +1,72 @@
+form {
+    width: 322px;
+    margin: 5em auto;
+    position: relative;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, .2);
+}
+
+ul {
+    list-style: none;
+    margin: 20px;
+    padding: 0 0 10px;
+}
+
+li {
+    margin: 0 0 1em 0;
+}
+
+h2 {
+    margin: 0;
+    height: 50px;
+    padding: 0;
+    background: #f00;
+    line-height: 50px;
+    text-indent: 20px;
+    color: #fff;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    height: 23px;
+    line-height: 1rem;
+}
+
+.error {
+    display: none;
+    color: red;
+}
+
+input[type="text"],
+input[type="password"] {
+    height: 30px;
+    line-height: 30px;
+    box-sizing: border-box;
+    border: 1px solid #333;
+    padding: 0 6px;
+    font-size: 1rem;
+    display: block;
+    width: 100%;
+}
+
+.submit {
+    text-align: center;
+}
+.submit button {
+    display: inline-block;
+    height: 40px;
+    width: 200px;
+    background: red;
+    border: none 0;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.3rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.submit button:hover,
+.submit button:focus,
+.submit button:active {
+    background: #d00;
+}

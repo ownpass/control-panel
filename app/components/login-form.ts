@@ -15,59 +15,35 @@ import { Router } from '@angular/router';
             <h2>{{title}}</h2>
             <ul> 
                 <li>
-                    <input type="text" placeholder="username" formControlName="username"/>
-                    <small [hidden]="myForm.controls.username.valid || (myForm.controls.username.pristine && !submitted)">
+                    <label for="login-username">Email</label>
+                    <input id="login-username" type="text" placeholder="user@domain.com" formControlName="username"/>
+                    <div class="error" [hidden]="myForm.controls.username.valid || (myForm.controls.username.pristine && !submitted)">
                         Name is required (Alphanumeric characters only).
-                    </small>
+                    </div>
                 </li>
                 <li>
-                    <input type="password" placeholder="password" formControlName="password"/>
-                    <small [hidden]="myForm.controls.password.valid || (myForm.controls.password.pristine && !submitted)">
+                    <label for="login-password">Master password</label>
+                    <input for="login-password" type="password" placeholder="******" formControlName="password"/>
+                    <div class="error" [hidden]="myForm.controls.password.valid || (myForm.controls.password.pristine && !submitted)">
                         Password is required
-                    </small>
+                    </div>
                 </li>
-                <li>
+                <li class="submit">
                     <button>Login</button>
                 </li>
             </ul>
         </form>
     `,
-    styles: [`
-        form {
-            width: 300px;
-            margin: 5em auto;
-            position: relative;
-            border: 1px solid #369;
-        }
-
-        ul {
-            list-style: none;
-            margin: 0 1em;
-            padding: 0;
-        }
-
-        li {
-            margin: 0 0 1em 0;
-        }
-
-        h2 {
-            text-align: center;
-        }
-
-        small {
-            display: block;
-            color: red;
-        }
-    `]
+    styleUrls: ['app/components/login-form.css']
 })
 
-export class LoginFormComponent {
+export class LoginFormComponent {   
+    public title = 'Login!'
+    public submitted: boolean;
+
     constructor(private _fb: FormBuilder, private oAuth: OAuth, private cv: CredentialsValidator, private router: Router) {
         // check if the user is logged in!
     }
-    
-    public title = 'Login!'
-    public submitted: boolean;
 
     login = (submitEvent: Event, model: Credentials, isValid: boolean) => {
         let that = this;

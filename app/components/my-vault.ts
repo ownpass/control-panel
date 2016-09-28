@@ -34,7 +34,7 @@ import { Vault} from '../services/vault'
 
     .header {
       font-weight: bold;
-      background: #369;
+      background: #333;
       color: #fff;
     }
 

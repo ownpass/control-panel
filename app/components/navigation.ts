@@ -3,12 +3,19 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'my-navigation',
   template: `
-    <nav>
-      <a routerLink="/login" routerLinkActive="active">login</a>
-      <a routerLink="/control-panel" routerLinkActive="active">Secure page</a>
-      <a routerLink="/fertert" routerLinkActive="active">404</a>
-    </nav>
+    <ul>
+      <li>
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+      </li>
+      <li>
+        <a routerLink="/control-panel" routerLinkActive="active">Control panel</a>
+      </li>
+      <li>
+        <a routerLink="/fertert" routerLinkActive="active">404</a>
+      </li>
+    </ul>
   `,
+  styleUrls: ['app/components/navigation.css']
 })
 
 export class NavigationComponent {}

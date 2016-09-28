@@ -8,9 +8,13 @@ import { Router } from '@angular/router';
   template: `
     <div class="wrapper">
       <div class="heading">Ownpass</div>
-      <h2>Welcome {{ user.name }}!</h2>
-      <my-navigation></my-navigation>
-      <my-vault></my-vault>
+      <nav class="mainmenu">
+        <my-navigation></my-navigation>
+      </nav>
+      <div class="content">
+        <h2>Welcome {{ user.name }}!</h2>
+        <my-vault></my-vault>
+      </div>
     </div>
   `,
   styleUrls: ['app/components/control-panel.css']

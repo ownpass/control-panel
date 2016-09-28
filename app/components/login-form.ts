@@ -38,7 +38,7 @@ import { Router } from '@angular/router';
 })
 
 export class LoginFormComponent {   
-    public title = 'Login!'
+    public title = 'OwnPass'
     public submitted: boolean;
 
     constructor(private _fb: FormBuilder, private oAuth: OAuth, private cv: CredentialsValidator, private router: Router) {

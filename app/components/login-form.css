@@ -33,8 +33,14 @@ label {
 }
 
 .error {
-    display: none;
     color: red;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+input[type="text"].has-error,
+input[type="password"].has-error {
+    border-color: red;
 }
 
 input[type="text"],

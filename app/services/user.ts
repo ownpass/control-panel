@@ -9,7 +9,7 @@ import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class User {
-    url: string = 'http://staging-api.ownpass.io/api/user';
+    url: string = 'http://staging-api.ownpass.io/user';
 
     constructor(private http: Http, private oAuth: OAuth, private router: Router) {}
 

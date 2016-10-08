@@ -15,7 +15,7 @@ export class VaultComponent {
         this.result = this.vaultService.get()
             .subscribe(
                 response => {
-                    this.vault = response._embedded.credential;
+                    this.vault = response._embedded.user_credential;
                     this.result = response;
                 });
     }

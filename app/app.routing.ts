@@ -4,6 +4,7 @@ import {DashboardComponent} from './components/dashboard/dashboard';
 import {LoginComponent}   from './components/login/login';
 import {ModuleWithProviders} from '@angular/core';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found';
+import {ProfileComponent} from './components/profile/profile';
 import {Routes, RouterModule} from '@angular/router';
 
 const appRoutes: Routes = [
@@ -12,6 +13,7 @@ const appRoutes: Routes = [
     {path: 'admin/accounts/create', component: AccountFormComponent},
     {path: 'dashboard', component: DashboardComponent},
     {path: 'login', component: LoginComponent},
+    {path: 'profile', component: ProfileComponent},
     {path: '**', component: PageNotFoundComponent}
 ];
 

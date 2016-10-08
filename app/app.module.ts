@@ -13,6 +13,7 @@ import {NavigationComponent} from './components/navigation/navigation';
 import {NgModule, enableProdMode} from '@angular/core';
 import {OAuth} from './services/oauth';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found';
+import {ProfileComponent} from './components/profile/profile';
 import {Vault} from './services/vault';
 import {VaultComponent} from './components/vault/vault';
 import {User} from './services/user';
@@ -35,6 +36,7 @@ import {User} from './services/user';
         LoginComponent,
         NavigationComponent,
         PageNotFoundComponent,
+        ProfileComponent,
         VaultComponent
     ],
     bootstrap: [

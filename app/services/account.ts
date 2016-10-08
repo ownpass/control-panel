@@ -7,8 +7,8 @@ import 'rxjs/Rx';
 import {Observable} from 'rxjs/Observable';
 
 @Injectable()
-export class Vault {
-    url: string = 'http://staging-api.ownpass.io/user/credential';
+export class Account {
+    url: string = 'http://staging-api.ownpass.io/account';
 
     constructor(private http: Http, private oAuth: OAuth, private router: Router) {
     }
@@ -16,6 +16,8 @@ export class Vault {
     get = () => {
         let token: LocalStorageToken = this.oAuth.getToken();
         if (token.access_token === '') {
+            this.router.navigateByUrl('login');
+
             return Observable.of({});
         }
 

@@ -6,7 +6,7 @@ import { CredentialsValidator } from '../../forms/credentials-validator';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'login',
+    selector: 'ownpass-login',
     providers: [OAuth, CredentialsValidator],
     styleUrls: ['app/components/login/login.css'],
     templateUrl: 'app/components/login/login.html'

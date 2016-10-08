@@ -3,7 +3,7 @@ import {User} from '../../services/user';
 import {Router} from '@angular/router';
 
 @Component({
-    selector: 'dashboard',
+    selector: 'ownpass-dashboard',
     styleUrls: ['app/components/dashboard/dashboard.css'],
     templateUrl: 'app/components/dashboard/dashboard.html'
 })

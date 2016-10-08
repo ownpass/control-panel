@@ -1,0 +1,39 @@
+<div class="wrapper">
+    <div class="heading">OwnPass</div>
+
+    <nav class="mainmenu">
+        <ownpass-navigation></ownpass-navigation>
+    </nav>
+
+    <div class="content">
+        <h2>Accounts</h2>
+
+        <p>
+            <a routerLink="/admin/accounts/create">Create Account</a>
+        </p>
+
+        <table>
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>E-mail</th>
+                <th>Options</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let account of accounts">
+                    <td>{{account.id}}</td>
+                    <td>{{account.name}}</td>
+                    <td><a href="mailto:{{account.email_address}}">{{account.email_address}}</a></td>
+                    <td>
+                        <a href="">Edit</a>
+                        <a href="">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>
+            <a routerLink="/admin/accounts/create">Create Account</a>
+        </p>
+    </div>
+</div>

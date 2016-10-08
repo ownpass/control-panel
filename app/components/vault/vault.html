@@ -1,0 +1,15 @@
+<h3>Vault</h3>
+
+<ul>
+    <li class="header">
+        <div>Username</div>
+        <div>Password</div>
+        <div>Website</div>
+    </li>
+    <li *ngFor="let row of vault">
+        <div>{{ row.identity }}</div>
+        <div class="password" [hidden]="row.showPass" (click)="row.showPass = true">********</div>
+        <div class="password" [hidden]="!row.showPass" (click)="row.showPass = false">{{ row.credential }}</div>
+        <div>{{ row.urlRaw }}</div>
+    </li>
+</ul>

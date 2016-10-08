@@ -1,0 +1,22 @@
+<form [formGroup]="myForm" novalidate (submit)="login($event, myForm.value, myForm.valid)">
+    <h2>{{title}}</h2>
+    <ul>
+        <li>
+            <label for="login-username">Email</label>
+            <input id="login-username" type="text" placeholder="user@domain.com" formControlName="username"/>
+            <div class="error" [hidden]="myForm.controls.username.valid || (myForm.controls.username.pristine && !submitted)">
+                Name is required (Alphanumeric characters only).
+            </div>
+        </li>
+        <li>
+            <label for="login-password">Master password</label>
+            <input for="login-password" type="password" placeholder="******" formControlName="password"/>
+            <div class="error" [hidden]="myForm.controls.password.valid || (myForm.controls.password.pristine && !submitted)">
+                Password is required
+            </div>
+        </li>
+        <li class="submit">
+            <button>Login</button>
+        </li>
+    </ul>
+</form>

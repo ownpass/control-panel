@@ -1,19 +1,16 @@
-import { ModuleWithProviders } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { PageNotFoundComponent} from './components/page-not-found';
-import { AppComponent} from './components/app';
-import { LoginFormComponent }   from './components/login-form';
-import { ControlPanelComponent } from './components/control-panel';
+import {ModuleWithProviders} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {PageNotFoundComponent} from './components/page-not-found/page-not-found';
+import {LoginComponent}   from './components/login/login';
+import {DashboardComponent} from './components/dashboard/dashboard';
 
 const appRoutes: Routes = [
-  { path: 'login', component: LoginFormComponent },
-  { path: 'control-panel', component: ControlPanelComponent },
-  { path: '', component: LoginFormComponent },
-  { path: '**', component: PageNotFoundComponent }
+    {path: 'login', component: LoginComponent},
+    {path: 'dashboard', component: DashboardComponent},
+    {path: '', component: LoginComponent},
+    {path: '**', component: PageNotFoundComponent}
 ];
 
-export const appRoutingProviders: any[] = [
-
-];
+export const appRoutingProviders: any[] = [];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

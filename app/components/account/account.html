@@ -9,7 +9,7 @@
         <h2>Accounts</h2>
 
         <p>
-            <a routerLink="/admin/accounts/create">Create Account</a>
+            <a routerLink="/accounts/create">Create Account</a>
         </p>
 
         <table>
@@ -25,15 +25,16 @@
                     <td>{{account.name}}</td>
                     <td><a href="mailto:{{account.email_address}}">{{account.email_address}}</a></td>
                     <td>
-                        <a href="">Edit</a>
-                        <a href="">Delete</a>
+                        <a routerLink="/accounts/edit/{{account.id}}">Edit</a>
+                        -
+                        <a (click)="deleteAccount(account)" >Delete</a>
                     </td>
                 </tr>
             </tbody>
         </table>
 
         <p>
-            <a routerLink="/admin/accounts/create">Create Account</a>
+            <a routerLink="/accounts/create">Create Account</a>
         </p>
     </div>
 </div>

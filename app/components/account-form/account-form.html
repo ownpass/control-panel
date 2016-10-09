@@ -6,6 +6,7 @@
     </nav>
 
     <div class="content">
-        <h2>Account Form</h2>
+        <h2 *ngIf="isEdit === true">Edit Account</h2>
+        <h2 *ngIf="isEdit !== true">Create Account</h2>
     </div>
 </div>

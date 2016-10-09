@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
-import {User} from '../../services/user';
 import {Router} from '@angular/router';
+import {Title} from '@angular/platform-browser';
+import {User} from '../../services/user';
 
 @Component({
     selector: 'ownpass-dashboard',
@@ -12,7 +13,13 @@ export class DashboardComponent {
     that = this;
     public user;
 
-    constructor(private userService: User, private router: Router) {
+    constructor(
+        private userService: User,
+        private router: Router,
+        private title: Title
+    ) {
+        title.setTitle('OwnPass Dashboard');
+
         this.user = this.userService.get()
             .subscribe(
                 user => {

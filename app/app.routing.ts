@@ -8,13 +8,63 @@ import {ProfileComponent} from './components/profile/profile';
 import {Routes, RouterModule} from '@angular/router';
 
 const appRoutes: Routes = [
-    {path: '', redirectTo: '/login', pathMatch: 'full'},
-    {path: 'admin/accounts', component: AccountComponent},
-    {path: 'admin/accounts/create', component: AccountFormComponent},
-    {path: 'dashboard', component: DashboardComponent},
-    {path: 'login', component: LoginComponent},
-    {path: 'profile', component: ProfileComponent},
-    {path: '**', component: PageNotFoundComponent}
+    {
+        path: '',
+        redirectTo: '/login',
+        pathMatch: 'full',
+        data: {
+            'name': 'home'
+        }
+    },
+    {
+        path: 'accounts',
+        component: AccountComponent,
+        data: {
+            'name': 'accounts'
+        }
+    },
+    {
+        path: 'accounts/create',
+        component: AccountFormComponent,
+        data: {
+            'name': 'account-create'
+        }
+    },
+    {
+        path: 'accounts/edit/:id',
+        component: AccountFormComponent,
+        data: {
+            'name': 'account-edit'
+        }
+    },
+    {
+        path: 'dashboard',
+        component: DashboardComponent,
+        data: {
+            'name': 'dashboard'
+        }
+    },
+    {
+        path: 'login',
+        component: LoginComponent,
+        data: {
+            'name': 'login'
+        }
+    },
+    {
+        path: 'profile',
+        component: ProfileComponent,
+        data: {
+            'name': 'profile'
+        }
+    },
+    {
+        path: '**',
+        component: PageNotFoundComponent,
+        data: {
+            'name': 'catch-all'
+        }
+    }
 ];
 
 export const appRoutingProviders: any[] = [];

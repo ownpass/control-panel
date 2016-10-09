@@ -8,5 +8,43 @@
     <div class="content">
         <h2 *ngIf="isEdit === true">Edit Account</h2>
         <h2 *ngIf="isEdit !== true">Create Account</h2>
+
+        <div [hidden]="submitted">
+            <form (ngSubmit)="onSubmit()" #accountForm="ngForm">
+                <p>
+                    <label for="name">Name</label>
+                    <input type="text"
+                           name="name"
+                           id="name"
+                           required
+                           #name="ngModel"
+                           [(ngModel)]="account.name">
+                </p>
+
+                <p>
+                    <label for="emailAddress">E-mail address</label>
+                    <input type="text"
+                           name="emailAddress"
+                           id="emailAddress"
+                           required
+                           [(ngModel)]="account.email_address">
+                </p>
+
+                <p>
+                    <label for="role">Role</label>
+                    <select id="role" name="role" required [(ngModel)]="account.role">
+                        <option *ngFor="let r of roles" [value]="r.key">{{r.label}}</option>
+                    </select>
+                </p>
+
+                <p>
+                    <button type="submit" [disabled]="!accountForm.form.valid">Submit</button>
+                </p>
+            </form>
+        </div>
+
+        <div [hidden]="!submitted">
+            <p>The account has been created.</p>
+        </div>
     </div>
 </div>

@@ -16,7 +16,19 @@ export class Account {
     }
 
     delete = (account: AccountInterface) => {
-        console.log('Deleting', account);
+        let token: LocalStorageToken = this.oAuth.getToken();
+        if (token.access_token === '') {
+            this.router.navigateByUrl('login');
+
+            return Observable.of({});
+        }
+
+        let headers = new Headers();
+        headers.append('Authorization', token.token_type + ' ' + token.access_token);
+
+        return this.http.delete(this.url + '/' + account.id, {
+            headers: headers,
+        }).map(response => response.json());
     }
 
     find = (id: string) => {
@@ -49,5 +61,30 @@ export class Account {
         return this.http.get(this.url, {
             headers: headers,
         }).map(response => response.json());
+    }
+
+    persist(account: AccountInterface) {
+        let token: LocalStorageToken = this.oAuth.getToken();
+        if (token.access_token === '') {
+            this.router.navigateByUrl('login');
+
+            return Observable.of({});
+        }
+
+        let headers = new Headers();
+        headers.append('Authorization', token.token_type + ' ' + token.access_token);
+        headers.append('Content-Type', 'application/vnd.own-pass-user.v1+json');
+
+        let result = null;
+
+        if (account.id) {
+            console.log('TODO', account);
+        } else {
+            result = this.http.post(this.url, JSON.stringify(account), {
+                headers: headers,
+            }).map(response => response.json());
+        }
+
+        return result;
     }
 }

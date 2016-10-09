@@ -21,7 +21,7 @@ export class AccountComponent {
     ) {
         title.setTitle('OwnPass Accounts');
 
-        this.result = this.accountService.get().subscribe(
+        this.accountService.get().subscribe(
             response => {
                 this.accounts = response._embedded.account;
                 this.result = response;
@@ -30,6 +30,13 @@ export class AccountComponent {
     }
 
     deleteAccount(account: AccountInterface): void {
-        this.accountService.delete(account);
+        this.accountService.delete(account).subscribe(
+            response => {
+                console.log(account);
+                console.log(response);
+
+                // TODO: Remove the row from HTML
+            }
+        );
     }
 }

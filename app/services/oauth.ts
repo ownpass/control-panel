@@ -23,11 +23,10 @@ export class OAuth {
 
     login = (user: Credentials) => {
         return this.http.post(this.url, {
-            username: user.username,
-            password: user.password,
             'grant_type': "password",
-            scope: "admin",
-            'client_id': "chrome-extension"
+            'client_id': "control-panel",
+            'username': user.username,
+            'password': user.password
         });
     }
 

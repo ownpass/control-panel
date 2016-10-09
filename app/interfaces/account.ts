@@ -8,14 +8,9 @@ export interface AccountInterface {
     id: string;
 
     /**
-     * The first name of the person that owns the account.
+     * The name of the person that owns the account.
      */
-    first_name: string;
-
-    /**
-     * The last name of the person that owns the account.
-     */
-    last_name: string;
+    name: string;
 
     /**
      * The e-mail address of the person that owns the account.

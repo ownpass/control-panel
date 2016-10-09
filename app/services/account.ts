@@ -10,11 +10,9 @@ import {Router} from '@angular/router';
 export class Account {
     url: string = 'http://staging-api.ownpass.io/account';
 
-    constructor(
-        private http: Http,
-        private oAuth: OAuth,
-        private router: Router
-    ) {
+    constructor(private http: Http,
+                private oAuth: OAuth,
+                private router: Router) {
     }
 
     delete = (account: AccountInterface) => {

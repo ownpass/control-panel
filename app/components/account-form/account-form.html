@@ -13,29 +13,76 @@
             <form (ngSubmit)="onSubmit()" #accountForm="ngForm">
                 <p>
                     <label for="name">Name</label>
+
                     <input type="text"
                            name="name"
                            id="name"
-                           required
                            #name="ngModel"
                            [(ngModel)]="account.name">
                 </p>
+
+                <ul class="error" [hidden]="!errors || !errors.name || errors.name.length === 0">
+                    <li *ngFor="let msg of errors?.name">
+                        {{msg}}
+                    </li>
+                </ul>
 
                 <p>
                     <label for="emailAddress">E-mail address</label>
                     <input type="text"
                            name="emailAddress"
                            id="emailAddress"
-                           required
                            [(ngModel)]="account.email_address">
                 </p>
 
+                <ul class="error" [hidden]="!errors || !errors.email_address || errors.email_address.length === 0">
+                    <li *ngFor="let msg of errors?.email_address">
+                        {{msg}}
+                    </li>
+                </ul>
+
                 <p>
                     <label for="role">Role</label>
-                    <select id="role" name="role" required [(ngModel)]="account.role">
+                    <select id="role" name="role" [(ngModel)]="account.role">
                         <option *ngFor="let r of roles" [value]="r.key">{{r.label}}</option>
                     </select>
                 </p>
+
+                <ul class="error" [hidden]="!errors || !errors.role || errors.role.length === 0">
+                    <li *ngFor="let msg of errors?.role">
+                        {{msg}}
+                    </li>
+                </ul>
+
+                <p>
+                    <label for="name">Username</label>
+                    <input type="text"
+                           name="identity"
+                           id="identity"
+                           #name="ngModel"
+                           [(ngModel)]="identity">
+                </p>
+
+                <ul class="error" [hidden]="!errors || !errors.identity || errors.identity.length === 0">
+                    <li *ngFor="let msg of errors?.identity">
+                        {{msg}}
+                    </li>
+                </ul>
+
+                <p>
+                    <label for="name">Password</label>
+                    <input type="text"
+                           name="credential"
+                           id="credential"
+                           #name="ngModel"
+                           [(ngModel)]="credential">
+                </p>
+
+                <ul class="error" [hidden]="!errors || !errors.credential || errors.credential.length === 0">
+                    <li *ngFor="let msg of errors?.credential">
+                        {{msg}}
+                    </li>
+                </ul>
 
                 <p>
                     <button type="submit" [disabled]="!accountForm.form.valid">Submit</button>

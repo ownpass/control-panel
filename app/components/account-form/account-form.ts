@@ -78,20 +78,6 @@ export class AccountFormComponent implements OnInit {
         });
     }
 
-    buildErrors(messages: any): any {
-        let result = {};
-
-        Object.keys(messages).map(function(key) {
-            result[key] = [];
-
-            Object.keys(messages[key]).map(function(error) {
-                result[key].push(messages[key][error]);
-            });
-        });
-
-        return result;
-    }
-
     onSubmit(): void {
         this.errors = null;
 
@@ -110,5 +96,19 @@ export class AccountFormComponent implements OnInit {
                 }
             }
         );
+    }
+
+    buildErrors(messages: any): any {
+        let result = {};
+
+        Object.keys(messages).map(function(key) {
+            result[key] = [];
+
+            Object.keys(messages[key]).map(function(error) {
+                result[key].push(messages[key][error]);
+            });
+        });
+
+        return result;
     }
 }

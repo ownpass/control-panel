@@ -8,6 +8,46 @@
     <div class="content">
         <h2>Profile</h2>
 
-        TODO
+        <div [hidden]="submitted">
+            <form (ngSubmit)="onSubmit()" #profileForm="ngForm">
+                <p>
+                    <label for="name">Name</label>
+
+                    <input type="text"
+                           name="name"
+                           id="name"
+                           #name="ngModel"
+                           [(ngModel)]="account.name">
+                </p>
+
+                <ul class="error" [hidden]="!errors || !errors.name || errors.name.length === 0">
+                    <li *ngFor="let msg of errors?.name">
+                        {{msg}}
+                    </li>
+                </ul>
+
+                <p>
+                    <label for="emailAddress">E-mail address</label>
+                    <input type="text"
+                           name="emailAddress"
+                           id="emailAddress"
+                           [(ngModel)]="account.email_address">
+                </p>
+
+                <ul class="error" [hidden]="!errors || !errors.email_address || errors.email_address.length === 0">
+                    <li *ngFor="let msg of errors?.email_address">
+                        {{msg}}
+                    </li>
+                </ul>
+
+                <p>
+                    <button type="submit" [disabled]="!profileForm.form.valid">Submit</button>
+                </p>
+            </form>
+        </div>
+
+        <div [hidden]="!submitted">
+            <p>Your profile has been updated.</p>
+        </div>
     </div>
 </div>

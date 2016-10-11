@@ -5,6 +5,7 @@ import {Http, Headers} from '@angular/http';
 import {OAuth} from './oauth';
 import {Observable} from 'rxjs/Observable';
 import {Router} from '@angular/router';
+import {AccountEntity} from "../entity/account";
 
 @Injectable()
 export class Account {
@@ -78,7 +79,13 @@ export class Account {
         let result = null;
 
         if (account.id) {
-            console.log('TODO', account);
+            if (account.status === AccountEntity.STATUS_INVITED) {
+                delete account.status;
+            }
+
+            result = this.http.put(this.url + '/' + account.id, JSON.stringify(account), {
+                headers: headers,
+            }).map(response => response.json());
         } else {
             result = this.http.post(this.url, JSON.stringify(account), {
                 headers: headers,

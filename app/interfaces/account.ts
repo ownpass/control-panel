@@ -21,4 +21,9 @@ export interface AccountInterface {
      * The role of the account.
      */
     role: string;
+
+    /**
+     * The role of the account.
+     */
+    status: string;
 }

@@ -54,35 +54,33 @@
                     </li>
                 </ul>
 
-                <p>
-                    <label for="name">Username</label>
-                    <input type="text"
-                           name="identity"
-                           id="identity"
-                           #name="ngModel"
-                           [(ngModel)]="identity">
-                </p>
+                <div *ngIf="isEdit === true && account.status == 'invited'">
+                    <p>
+                        <label for="status">Status</label>
+                        <span>Invited</span>
+                    </p>
 
-                <ul class="error" [hidden]="!errors || !errors.identity || errors.identity.length === 0">
-                    <li *ngFor="let msg of errors?.identity">
-                        {{msg}}
-                    </li>
-                </ul>
+                    <ul class="error" [hidden]="!errors || !errors.status || errors.status.length === 0">
+                        <li *ngFor="let msg of errors?.status">
+                            {{msg}}
+                        </li>
+                    </ul>
+                </div>
 
-                <p>
-                    <label for="name">Password</label>
-                    <input type="text"
-                           name="credential"
-                           id="credential"
-                           #name="ngModel"
-                           [(ngModel)]="credential">
-                </p>
+                <div *ngIf="isEdit === true && account.status != 'invited'">
+                    <p>
+                        <label for="status">Status</label>
+                        <select id="status" name="status" [(ngModel)]="account.status">
+                            <option *ngFor="let s of statusList" [value]="s.key">{{s.label}}</option>
+                        </select>
+                    </p>
 
-                <ul class="error" [hidden]="!errors || !errors.credential || errors.credential.length === 0">
-                    <li *ngFor="let msg of errors?.credential">
-                        {{msg}}
-                    </li>
-                </ul>
+                    <ul class="error" [hidden]="!errors || !errors.status || errors.status.length === 0">
+                        <li *ngFor="let msg of errors?.status">
+                            {{msg}}
+                        </li>
+                    </ul>
+                </div>
 
                 <p>
                     <button type="submit" [disabled]="!accountForm.form.valid">Submit</button>
@@ -91,7 +89,8 @@
         </div>
 
         <div [hidden]="!submitted">
-            <p>The account has been created.</p>
+            <p *ngIf="isEdit === true">The account has been updated.</p>
+            <p *ngIf="isEdit !== true">The account has been created.</p>
         </div>
     </div>
 </div>

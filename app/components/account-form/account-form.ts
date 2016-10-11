@@ -14,9 +14,8 @@ import {Router} from '@angular/router';
 export class AccountFormComponent implements OnInit {
     public isEdit: boolean;
     public account: AccountInterface;
-    public identity: string;
-    public credential: string;
     public roles: any[];
+    public statusList: any[];
     public errors: any[];
     public submitted: boolean;
 
@@ -39,6 +38,21 @@ export class AccountFormComponent implements OnInit {
             }
         ];
 
+        this.statusList = [
+            {
+                'key': AccountEntity.STATUS_ACTIVE,
+                'label': 'Active'
+            },
+            {
+                'key': AccountEntity.STATUS_INACTIVE,
+                'label': 'Inactive'
+            },
+            {
+                'key': AccountEntity.STATUS_INVITED,
+                'label': 'Invited'
+            }
+        ];
+
         this.account = new AccountEntity();
         this.account.role = AccountEntity.ROLE_USER;
     }
@@ -50,7 +64,7 @@ export class AccountFormComponent implements OnInit {
             if (id) {
                 this.isEdit = true;
 
-                /*this.accountService.find(id).subscribe(
+                this.accountService.find(id).subscribe(
                     response => {
                         this.account = response;
                     },
@@ -59,7 +73,7 @@ export class AccountFormComponent implements OnInit {
                             this.router.navigateByUrl('login');
                         }
                     }
-                );*/
+                );
             }
         });
     }
@@ -81,15 +95,10 @@ export class AccountFormComponent implements OnInit {
     onSubmit(): void {
         this.errors = null;
 
-        let persistIdentity = function() {
-
-        };
-
         this.accountService.persist(this.account).subscribe(
             response => {
-                console.log(response);
-
-                //this.submitted = true;
+                this.account = response;
+                this.submitted = true;
             },
             error => {
                 if (error.status === 401) {

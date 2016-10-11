@@ -17,6 +17,8 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>E-mail</th>
+                <th>Role</th>
+                <th>Status</th>
                 <th>Options</th>
             </thead>
             <tbody>
@@ -24,6 +26,8 @@
                     <td>{{account.id}}</td>
                     <td>{{account.name}}</td>
                     <td><a href="mailto:{{account.email_address}}">{{account.email_address}}</a></td>
+                    <td>{{account.role}}</td>
+                    <td>{{account.status}}</td>
                     <td>
                         <a routerLink="/accounts/edit/{{account.id}}">Edit</a>
                         -

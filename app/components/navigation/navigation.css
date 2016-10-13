@@ -60,6 +60,10 @@ li.passwords a svg {
 /* Some media query's to make the app more mobile friendly */
 
 @media screen and (max-width: 700px) {
+    .collapse {
+        transition: all .5s;
+    }
+
     ul:not(.open) .collapse {
         margin-left: 700px;
         background: #da4b4b;

@@ -7,7 +7,7 @@ import {User} from '../../services/user';
 
 @Component({
     selector: 'ownpass-account',
-    styleUrls: ['app/components/profile/profile.css'],
+    styleUrls: ['app/components/dashboard/dashboard.css'],
     templateUrl: 'app/components/profile/profile.html'
 })
 

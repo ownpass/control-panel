@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
 
 @Component({
     selector: 'ownpass-account-form',
-    styleUrls: ['app/components/account-form/account-form.css'],
+    styleUrls: ['app/components/dashboard/dashboard.css'],
     templateUrl: 'app/components/account-form/account-form.html'
 })
 

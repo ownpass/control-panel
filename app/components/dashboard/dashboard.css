@@ -54,6 +54,7 @@ h2 {
         width: 80%;
         left: -700px;
         overflow: visible;
+        transition: left .5s;
     }
     
     .content {

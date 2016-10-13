@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {OAuth} from '../../services/oauth';
 import {Router} from '@angular/router';
 
@@ -9,6 +9,9 @@ import {Router} from '@angular/router';
 })
 
 export class NavigationComponent {
+    @Input() toggleNavigation;
+    @Input() navigationStatus;
+
     constructor(private oauth: OAuth, private router: Router) {
     }
 
@@ -18,4 +21,11 @@ export class NavigationComponent {
         this.oauth.removeToken();
         this.router.navigateByUrl('login');
     }
+
+    public collapse = (event: Event) => {
+        event.preventDefault();
+        this.toggleNavigation();
+    }
+
+
 }

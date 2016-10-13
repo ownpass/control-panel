@@ -2,11 +2,13 @@
 
 <ul>
     <li class="header">
+        <div>Title</div>
         <div>Username</div>
         <div>Password</div>
         <div>Website</div>
     </li>
     <li *ngFor="let row of vault">
+        <div>{{ row.title }}</div>
         <div>{{ row.identity }}</div>
         <div class="password" [hidden]="row.showPass" (click)="row.showPass = true">********</div>
         <div class="password" [hidden]="!row.showPass" (click)="row.showPass = false">{{ row.credential }}</div>

@@ -1,12 +1,6 @@
 .wrapper {
-    height: calc(100vh - 40px);
     min-height: 600px;
-    width: 100%;
-    width: calc(100% - 40px);
-    max-width: 1200px;
-    margin: 20px auto;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, .2);
-    background-color: #fff;
+    height: 100vh;
 }
 
 h2 {
@@ -18,24 +12,36 @@ h2 {
     padding: 0;
     background: #f00;
     line-height: 50px;
+    margin: -20px -20px 20px -20px;
     text-indent: 20px;
     color: #fff;
 }
 
 .mainmenu,
 .content {
-    height: calc(100vh - 90px);
-    min-height: 550px;
+    height: 100vh;
+    min-height: 600px;
     box-sizing: border-box;
 }
 
 .mainmenu {
-    width: 160px;
-    background: #eee;;
+    width: 60px;
+    background: #3C4A54;
+    overflow: hidden;
     position: absolute;
-    height: calc(100vh - 90px);
+    transition: width .25s ease-in-out;
 }
+
+.mainmenu.open {
+    width: 160px;
+}
+
 .content {
-    margin-left: 160px;
+    margin-left: 60px;
     padding: 20px;
+    transition: margin .25s ease-in-out;
+}
+
+.mainmenu.open + .content {
+    margin-left: 160px;
 }

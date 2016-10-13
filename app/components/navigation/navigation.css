@@ -56,3 +56,16 @@ li.passwords a svg {
 .open li.collapse a span {
     transform: translateX(-50px);
 }
+
+/* Some media query's to make the app more mobile friendly */
+
+@media screen and (max-width: 700px) {
+    ul:not(.open) .collapse {
+        margin-left: 700px;
+        background: #da4b4b;
+        height: 50px;
+        width: 60px;
+        overflow: hidden;
+        border-bottom: 0 none;
+    }
+}

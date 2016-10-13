@@ -45,3 +45,31 @@ h2 {
 .mainmenu.open + .content {
     margin-left: 160px;
 }
+
+
+/* Some media query's to make the app more mobile friendly */
+
+@media screen and (max-width: 700px) {
+    .mainmenu {
+        width: 80%;
+        left: -700px;
+        overflow: visible;
+    }
+    
+    .content {
+        margin-left: 0;
+    }
+
+    .heading {
+        margin-left: 40px;
+    }
+
+    .open.mainmenu {
+        left: 0;
+        width: 80%;
+    }
+
+    .mainmenu.open + .content {
+        margin-left: 0;
+    }
+}

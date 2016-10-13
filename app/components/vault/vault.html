@@ -1,6 +1,18 @@
 <h3>Vault</h3>
-
-<ul>
+<hr>
+<a
+    class="toggle-view"
+    [class.grid]="isGrid"
+    [class.list]="!isGrid"
+    href="#" 
+    (click)="toggleView($event)">
+    <svg class="list-view" viewBox="0 0 1024 1024"><use xlink:href="icons.svg#view_list"></use></svg>
+    <svg class="grid-view" viewBox="0 0 1024 1024"><use xlink:href="icons.svg#view_module"></use></svg>
+    
+    Toggle view
+</a>
+<hr>
+<ul [class.grid]="isGrid" [class.list]="!isGrid">
     <li class="header">
         <div>Title</div>
         <div>Username</div>

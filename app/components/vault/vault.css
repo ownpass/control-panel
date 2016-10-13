@@ -1,21 +1,48 @@
+/* Genral */
 ul {
     margin: 0 0 2em 0;
     padding: 0;
     list-style: none;
 }
 
-li {
+.password {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+.toggle-view svg {
+    width: 40px;
+    display: none;
+    vertical-align: middle;
+}
+
+.grid .list-view {
+    display: inline-block;
+}
+
+.list .grid-view {
+    display: inline-block;
+}
+
+
+/* List view */
+ul.list {
+    
+}
+
+ul.list li {
     width: 100%;
     overflow: auto;
 }
 
-.header {
+ul.list .header {
     font-weight: bold;
     background: #333;
     color: #fff;
 }
 
-div {
+ul.list div {
     box-sizing: border-box;
     float: left;
     padding: 5px;
@@ -25,16 +52,32 @@ div {
     text-overflow: ellipsis;
 }
 
-li:nth-child(odd):not(.header) {
+ul.list li:nth-child(odd):not(.header) {
     background: #eef6ff;
 }
 
-li:not(.header):hover {
+ul.list li:not(.header):hover {
     background: #eee;
 }
 
-.password {
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
+
+
+/* Grid view */
+ul.grid {
+    font-size: 0;
+}
+
+ul.grid li {
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+    border: 1px solid #ddd;
+    font-size: 1.5rem;
+    margin: 0 20px 20px 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+ul.grid li.header {
+    display: none;
 }

@@ -11,6 +11,7 @@ import {User} from '../../services/user';
 
 export class DashboardComponent {
     that = this;
+    public navigationStatus: boolean = false;
     public user;
 
     constructor(
@@ -21,15 +22,20 @@ export class DashboardComponent {
         title.setTitle('OwnPass Dashboard');
 
         this.user = this.userService.get()
-            .subscribe(
-                user => {
-                    this.user = user
-                },
-                error => {
-                    if (error.status === 401) {
-                        this.router.navigateByUrl('login');
-                    }
+        .subscribe(
+            user => {
+                this.user = user
+            },
+            error => {
+                if (error.status === 401) {
+                    this.router.navigateByUrl('login');
                 }
-            );
+            }
+        );
+        
+    }
+
+    public toggleNavigation = () => {
+        this.navigationStatus = !this.navigationStatus;
     }
 }

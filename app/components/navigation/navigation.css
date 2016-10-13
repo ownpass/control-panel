@@ -5,20 +5,54 @@ ul {
 
 li {
     display: block;
-    border-bottom: 1px solid #bbb;
+    border-bottom: 1px solid rgba(0,0,0,.5);
 }
 a {
     display: block;
-    height: 40px;
+    height: 50px;
     white-space: nowrap;
-    line-height: 40px;
-    text-indent: 20px;
+    line-height: 50px;
+    text-indent: 15px;
     text-decoration: none;
-    color: #333;
+    color: #fff;
 }
 
-a:hover,
-a:focus,
-a:active {
-    background: #ddd;
+a:hover {
+    background: #555;
+}
+
+svg {
+    width: 32px;
+    height: auto;
+    fill: #fff;
+    display: block;
+    float: left;
+    top: 12px;
+    position: relative;
+    left: 10px;
+    transition: transform .25s ease-in-out;
+}
+
+span {
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    transition: transform 0.25s ease-in-out;
+}
+
+/* Finetune icons */
+li.profile a svg,
+li.accounts a svg,
+li.logout a svg,
+li.passwords a svg {
+    transform: rotate(180deg) translateY(5px);
+}
+
+/* Collapse buttons animation & transition */
+.open li.collapse svg {
+    transform: translate(100px, -6px) rotate(180deg);
+}
+
+.open li.collapse a span {
+    transform: translateX(-50px);
 }

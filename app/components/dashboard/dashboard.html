@@ -1,13 +1,14 @@
 <div class="wrapper">
-    <div class="heading">OwnPass</div>
-
-    <nav class="mainmenu">
-        <ownpass-navigation></ownpass-navigation>
+    <nav class="mainmenu" [class.open]="navigationStatus">
+        <ownpass-navigation
+            [toggleNavigation]="toggleNavigation"
+            [navigationStatus]="navigationStatus">
+        </ownpass-navigation>
     </nav>
 
     <div class="content">
+        <div class="heading">OwnPass</div>
         <h2>Welcome {{ user.name }}!</h2>
-
         <ownpass-vault></ownpass-vault>
     </div>
 </div>

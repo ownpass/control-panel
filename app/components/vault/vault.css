@@ -19,7 +19,7 @@ div {
     box-sizing: border-box;
     float: left;
     padding: 5px;
-    width: 33.33%;
+    width: 25%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

@@ -7,7 +7,7 @@ import {Title} from '@angular/platform-browser';
 
 @Component({
     selector: 'ownpass-account',
-    styleUrls: ['app/components/account/account.css'],
+    styleUrls: ['app/components/dashboard/dashboard.css'],
     templateUrl: 'app/components/account/account.html'
 })
 

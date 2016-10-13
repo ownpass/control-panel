@@ -14,6 +14,7 @@ import {Title} from '@angular/platform-browser';
 export class AccountComponent {
     public result;
     public accounts;
+    public navigationStatus: boolean = false; // TODO <---- fix this
 
     constructor(
         private accountService: Account,
@@ -74,5 +75,10 @@ export class AccountComponent {
                 // TODO: Remove the row from HTML
             }
         );
+    }
+
+    // TODO Fix this
+    public toggleNavigation = () => {
+        this.navigationStatus = !this.navigationStatus;
     }
 }

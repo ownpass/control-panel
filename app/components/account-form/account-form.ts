@@ -18,6 +18,7 @@ export class AccountFormComponent implements OnInit {
     public statusList: any[];
     public errors: any[];
     public submitted: boolean;
+    public navigationStatus: boolean = false; // TODO <---- fix this
 
     constructor(
         private accountService: Account,
@@ -110,5 +111,10 @@ export class AccountFormComponent implements OnInit {
         });
 
         return result;
+    }
+
+    // TODO Fix this
+    public toggleNavigation = () => {
+        this.navigationStatus = !this.navigationStatus;
     }
 }

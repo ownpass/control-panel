@@ -61,7 +61,7 @@ export class Account {
         let headers = new Headers();
         headers.append('Authorization', token.token_type + ' ' + token.access_token);
 
-        return this.http.get(this.url, {
+        return this.http.get(this.config.getServerUrl() + this.url, {
             headers: headers,
         }).map(response => response.json());
     }
@@ -89,7 +89,7 @@ export class Account {
                 headers: headers,
             }).map(response => response.json());
         } else {
-            result = this.http.post(this.url, JSON.stringify(account), {
+            result = this.http.post(this.config.getServerUrl() + this.url, JSON.stringify(account), {
                 headers: headers,
             }).map(response => response.json());
         }

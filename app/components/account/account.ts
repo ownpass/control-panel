@@ -2,7 +2,6 @@ import {AccountInterface} from '../../interfaces/account';
 import {AccountEntity} from '../../entity/account';
 import {Account} from '../../services/account';
 import {Component} from '@angular/core';
-import {Config} from '../../services/config';
 import {Router} from '@angular/router';
 import {Title} from '@angular/platform-browser';
 

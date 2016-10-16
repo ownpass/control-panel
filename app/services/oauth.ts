@@ -1,15 +1,14 @@
-import {Injectable} from '@angular/core';
-import {Http, Response, RequestOptions, Headers} from '@angular/http';
-import {Observable}     from 'rxjs/Observable';
-import {Credentials} from '../interfaces/credentials';
-import {LS} from './localstorage';
-import {LocalStorageToken} from '../interfaces/localstorage-token';
+import {Config} from "./config";
+import {Credentials} from "../interfaces/credentials";
+import {Http} from "@angular/http";
+import {Injectable} from "@angular/core";
+import {LS} from "./localstorage";
+import {LocalStorageToken} from "../interfaces/localstorage-token";
 
 @Injectable()
 export class OAuth {
-    result: Object;
-    url: string = 'http://staging-api.ownpass.io/oauth';
-    localStorageKey: string = 'oauthToken';
+    private url: string = '/oauth';
+    private localStorageKey: string = 'oauthToken';
 
     private token: LocalStorageToken = {
         access_token: '',
@@ -18,11 +17,14 @@ export class OAuth {
         token_type: '',
     };
 
-    constructor(private http: Http, private ls: LS) {
+    constructor(private config: Config,
+                private http: Http,
+                private ls: LS) {
     }
 
-    login = (user: Credentials) => {
-        return this.http.post(this.url, {
+    public login = (user: Credentials) => {
+        console.log('Logging in to ' + this.config.getServerUrl());
+        return this.http.post(this.config.getServerUrl() + this.url, {
             'grant_type': "password",
             'client_id': "control-panel",
             'username': user.username,
@@ -30,15 +32,15 @@ export class OAuth {
         });
     }
 
-    setToken = (response: string) => {
+    public setToken = (response: string) => {
         this.ls.set(this.localStorageKey, response);
     }
 
-    removeToken = () => {
+    public removeToken = () => {
         this.ls.remove(this.localStorageKey);
     }
 
-    getToken = () => {
+    public getToken = () => {
         let t = this.ls.getJSON(this.localStorageKey);
 
         if (t !== null && t.access_token && t.expires_in && t.refresh_token && t.token_type) {

@@ -1,16 +1,18 @@
-import {Injectable} from '@angular/core';
+import {Config} from './config';
 import {Http, Headers} from '@angular/http';
-import {OAuth} from './oauth';
+import {Injectable} from '@angular/core';
 import {LocalStorageToken} from '../interfaces/localstorage-token';
-import {Router} from '@angular/router';
-import 'rxjs/Rx';
+import {OAuth} from './oauth';
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/Rx';
 
 @Injectable()
 export class Vault {
-    url: string = 'http://staging-api.ownpass.io/user/credential';
+    private url: string = '/user/credential';
 
-    constructor(private http: Http, private oAuth: OAuth, private router: Router) {
+    constructor(private config: Config,
+                private http: Http,
+                private oAuth: OAuth) {
     }
 
     get = () => {
@@ -22,7 +24,7 @@ export class Vault {
         let headers = new Headers();
         headers.append('Authorization', token.token_type + ' ' + token.access_token);
 
-        return this.http.get(this.url, {
+        return this.http.get(this.config.getServerUrl() + this.url, {
             headers: headers,
         }).map(response => response.json());
     }

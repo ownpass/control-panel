@@ -4,6 +4,7 @@ import {AccountFormComponent} from './components/account-form/account-form';
 import {AppComponent} from './components/app';
 import {appRoutingProviders,routing}  from './app.routing';
 import {BrowserModule} from '@angular/platform-browser';
+import {Config} from './services/config';
 import {DashboardComponent} from './components/dashboard/dashboard';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
@@ -45,6 +46,7 @@ import {User} from './services/user';
     providers: [
         Account,
         appRoutingProviders,
+        Config,
         LS,
         OAuth,
         Vault,
@@ -53,4 +55,12 @@ import {User} from './services/user';
 })
 
 export class AppModule {
+    /**
+     * Initializes a new instance of AppModule
+     *
+     * @param config The configuration service.
+     */
+    constructor(private config: Config) {
+        config.load();
+    }
 }

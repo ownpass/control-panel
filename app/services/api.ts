@@ -9,6 +9,8 @@ import {Router} from "@angular/router";
 
 @Injectable()
 export class Api {
+    private username: string;
+
     constructor(private config: Config,
                 private http: Http,
                 private oAuth: OAuth,
@@ -16,12 +18,34 @@ export class Api {
                 private localStorage: LS) {
     }
 
-    getDeviceId(): string {
-        return this.localStorage.get('device-id');
+    setUsername(username: string): void {
+        this.username = username;
     }
 
-    setDeviceId(id: string): void {
-        this.localStorage.set('device-id', id);
+    getDeviceId(username: string): string {
+        let data = this.localStorage.getJSON('device-ids');
+
+        if (!data) {
+            return null;
+        }
+
+        if (!data[username]) {
+            return null;
+        }
+
+        return data[username];
+    }
+
+    setDeviceId(username: string, id: string): void {
+        let data = this.localStorage.getJSON('device-ids');
+
+        if (!data) {
+            data = {};
+        }
+
+        data[username] = id;
+
+        this.localStorage.setJSON('device-ids', data);
     }
 
     buildHeaders(token: LocalStorageToken): Headers {
@@ -29,7 +53,7 @@ export class Api {
         headers.append('Authorization', token.token_type + ' ' + token.access_token);
         headers.append('Content-Type', 'application/json');
 
-        let deviceId = this.getDeviceId();
+        let deviceId = this.getDeviceId(this.username);
         if (deviceId) {
             headers.append('X-OwnPass-Device', deviceId);
         }

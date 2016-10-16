@@ -36,17 +36,17 @@ export class LoginComponent {
             this.oAuth.login(model).subscribe(
                 response => {
                     if (response.status === 200 && response.hasOwnProperty('_body')) {
-                        that.oAuth.setToken(response['_body'])
+                        that.oAuth.setToken(response['_body']);
 
-                        console.log(model);
+                        this.api.setUsername(model.username);
 
-                        if (this.api.getDeviceId() === null) {
+                        if (this.api.getDeviceId(model.username) === null) {
                             this.deviceService.create(
                                 this.config.getDeviceName(),
                                 this.config.getDeviceDescription()
                             ).subscribe(
                                 response => {
-                                    this.api.setDeviceId(response.id);
+                                    this.api.setDeviceId(model.username, response.id);
                                 }
                             )
                         }

@@ -7,9 +7,10 @@
 1. Clone the reposotory
 2. $ `cd control-panel`
 3. Make sure [Node v4+](https://nodejs.org/en/download/) & [npm v3](https://docs.npmjs.com/getting-started/installing-node) are installed
-4. $ `npm install`
-5. $ `npm run typings install`
-6. $ `npm start`
+4. Copy `config.json.dist` to `config.json` and change the server url.
+5. $ `npm install`
+6. $ `npm run typings install`
+7. $ `npm start`
 
 [npm-url]: https://npmjs.org/package/ownpass-control-panel
 [downloads-image]: http://img.shields.io/npm/dm/ownpass-control-panel.svg

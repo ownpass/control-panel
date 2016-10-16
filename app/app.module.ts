@@ -1,11 +1,13 @@
 import {Account} from './services/account';
 import {AccountComponent} from './components/account/account';
 import {AccountFormComponent} from './components/account-form/account-form';
+import {Api} from './services/api';
 import {AppComponent} from './components/app';
 import {appRoutingProviders, routing}  from './app.routing';
 import {BrowserModule} from '@angular/platform-browser';
 import {Config} from './services/config';
 import {DashboardComponent} from './components/dashboard/dashboard';
+import {Device} from './services/device';
 import {DeviceActivateComponent} from './components/device-activate/device-activate';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
@@ -47,6 +49,7 @@ import {User} from './services/user';
     ],
     providers: [
         Account,
+        Api,
         appRoutingProviders,
         Config,
         {
@@ -55,6 +58,7 @@ import {User} from './services/user';
             deps: [Config],
             multi: true
         },
+        Device,
         LS,
         OAuth,
         Vault,

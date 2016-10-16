@@ -1,4 +1,6 @@
 {
     "server_url": "https://your-ownpass-url",
-    "client_id": "control-panel"
+    "client_id": "control-panel",
+    "device_name": "Control Panel",
+    "device_description": "The control panel application."
 }

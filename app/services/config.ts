@@ -18,6 +18,20 @@ export class Config {
     private clientId: string;
 
     /**
+     * The name of this device.
+     *
+     * @type {string}
+     */
+    private deviceName: string;
+
+    /**
+     * The description of this device.
+     *
+     * @type {string}
+     */
+    private deviceDescription: string;
+
+    /**
      * The server url used to do requests to.
      *
      * @type {string}
@@ -42,6 +56,24 @@ export class Config {
     }
 
     /**
+     * Gets the name of the device.
+     *
+     * @returns {string}
+     */
+    public getDeviceName(): string {
+        return this.deviceName;
+    }
+
+    /**
+     * Gets the description of the device.
+     *
+     * @returns {string}
+     */
+    public getDeviceDescription(): string {
+        return this.deviceDescription;
+    }
+
+    /**
      * Gets the server url.
      *
      * @returns {string}
@@ -59,6 +91,8 @@ export class Config {
                 res => res.json()
             ).subscribe(response => {
                 this.clientId = response['client_id'];
+                this.deviceName = response['device_name'];
+                this.deviceDescription = response['device_description'];
                 this.serverUrl = response['server_url'];
 
                 resolve();

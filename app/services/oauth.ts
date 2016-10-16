@@ -23,10 +23,9 @@ export class OAuth {
     }
 
     public login = (user: Credentials) => {
-        console.log('Logging in to ' + this.config.getServerUrl());
         return this.http.post(this.config.getServerUrl() + this.url, {
             'grant_type': "password",
-            'client_id': "control-panel",
+            'client_id': this.config.getClientId(),
             'username': user.username,
             'password': user.password
         });

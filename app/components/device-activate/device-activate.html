@@ -1,0 +1,11 @@
+<div *ngIf="isActivating">
+    Activating device...
+</div>
+
+<div *ngIf="!isActivating && isActivated">
+    Device has been activated! You can now log in.
+</div>
+
+<div *ngIf="!isActivating && !isActivated">
+    Failed to activate device.
+</div>

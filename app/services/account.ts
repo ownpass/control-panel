@@ -1,3 +1,4 @@
+import {Api} from '../services/api';
 import {AccountInterface} from '../interfaces/account';
 import {Config} from './config';
 import {Injectable} from '@angular/core';
@@ -13,71 +14,31 @@ export class Account {
     private url: string = '/account';
 
     constructor(private config: Config,
+                private api: Api,
                 private http: Http,
                 private oAuth: OAuth,
                 private router: Router) {
     }
 
     delete = (account: AccountInterface) => {
-        let token: LocalStorageToken = this.oAuth.getToken();
-        if (token.access_token === '') {
-            this.router.navigateByUrl('login');
-
-            return Observable.of({});
-        }
-
-        let headers = new Headers();
-        headers.append('Authorization', token.token_type + ' ' + token.access_token);
-
-        return this.http.delete(this.config.getServerUrl() + this.url + '/' + account.id, {
-            headers: headers,
-        }).map(response => response.json());
+        return this.api.delete(this.url + '/' + account.id).map(
+            response => response.json()
+        );
     }
 
     find = (id: string) => {
-        let token: LocalStorageToken = this.oAuth.getToken();
-        if (token.access_token === '') {
-            this.router.navigateByUrl('login');
-
-            return Observable.of({});
-        }
-
-        let headers = new Headers();
-        headers.append('Authorization', token.token_type + ' ' + token.access_token);
-
-        return this.http.get(this.config.getServerUrl() + this.url + '/' + id, {
-            headers: headers,
-        }).map(response => response.json());
+        return this.api.get(this.url + '/' + id).map(
+            response => response.json()
+        );
     }
 
     get = () => {
-        let token: LocalStorageToken = this.oAuth.getToken();
-        if (token.access_token === '') {
-            this.router.navigateByUrl('login');
-
-            return Observable.of({});
-        }
-
-        let headers = new Headers();
-        headers.append('Authorization', token.token_type + ' ' + token.access_token);
-
-        return this.http.get(this.config.getServerUrl() + this.url, {
-            headers: headers,
-        }).map(response => response.json());
+        return this.api.get(this.url).map(
+            response => response.json()
+        );
     }
 
     persist(account: AccountInterface) {
-        let token: LocalStorageToken = this.oAuth.getToken();
-        if (token.access_token === '') {
-            this.router.navigateByUrl('login');
-
-            return Observable.of({});
-        }
-
-        let headers = new Headers();
-        headers.append('Authorization', token.token_type + ' ' + token.access_token);
-        headers.append('Content-Type', 'application/vnd.own-pass-user.v1+json');
-
         let result = null;
 
         if (account.id) {
@@ -85,15 +46,13 @@ export class Account {
                 delete account.status;
             }
 
-            result = this.http.put(this.config.getServerUrl() + this.url + '/' + account.id, JSON.stringify(account), {
-                headers: headers,
-            }).map(response => response.json());
+            result = this.api.put(this.url + '/' + account.id, account);
         } else {
-            result = this.http.post(this.config.getServerUrl() + this.url, JSON.stringify(account), {
-                headers: headers,
-            }).map(response => response.json());
+            result = this.api.post(this.url, account);
         }
 
-        return result;
+        return result.map(
+            response => response.json()
+        );
     }
 }

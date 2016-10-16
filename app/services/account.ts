@@ -1,4 +1,5 @@
 import {AccountInterface} from '../interfaces/account';
+import {Config} from './config';
 import {Injectable} from '@angular/core';
 import {LocalStorageToken} from '../interfaces/localstorage-token';
 import {Http, Headers} from '@angular/http';
@@ -9,9 +10,10 @@ import {AccountEntity} from "../entity/account";
 
 @Injectable()
 export class Account {
-    url: string = 'http://staging-api.ownpass.io/account';
+    private url: string = '/account';
 
-    constructor(private http: Http,
+    constructor(private config: Config,
+                private http: Http,
                 private oAuth: OAuth,
                 private router: Router) {
     }
@@ -27,7 +29,7 @@ export class Account {
         let headers = new Headers();
         headers.append('Authorization', token.token_type + ' ' + token.access_token);
 
-        return this.http.delete(this.url + '/' + account.id, {
+        return this.http.delete(this.config.getServerUrl() + this.url + '/' + account.id, {
             headers: headers,
         }).map(response => response.json());
     }
@@ -43,7 +45,7 @@ export class Account {
         let headers = new Headers();
         headers.append('Authorization', token.token_type + ' ' + token.access_token);
 
-        return this.http.get(this.url + '/' + id, {
+        return this.http.get(this.config.getServerUrl() + this.url + '/' + id, {
             headers: headers,
         }).map(response => response.json());
     }
@@ -83,7 +85,7 @@ export class Account {
                 delete account.status;
             }
 
-            result = this.http.put(this.url + '/' + account.id, JSON.stringify(account), {
+            result = this.http.put(this.config.getServerUrl() + this.url + '/' + account.id, JSON.stringify(account), {
                 headers: headers,
             }).map(response => response.json());
         } else {

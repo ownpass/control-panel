@@ -54,13 +54,15 @@ export class Config {
      * Loads the configuration.
      */
     public load() {
-        this.http.get(Config.url).map(
-            response => response.json()
-        ).subscribe(
-            response => {
-                this.clientId = response.client_id;
-                this.serverUrl = response.server_api;
-            }
-        );
+        return new Promise((resolve) => {
+            this.http.get(Config.url).map(
+                res => res.json()
+            ).subscribe(response => {
+                this.clientId = response['client_id'];
+                this.serverUrl = response['server_url'];
+
+                resolve();
+            });
+        });
     }
 }

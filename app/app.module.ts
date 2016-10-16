@@ -6,6 +6,7 @@ import {appRoutingProviders, routing}  from './app.routing';
 import {BrowserModule} from '@angular/platform-browser';
 import {Config} from './services/config';
 import {DashboardComponent} from './components/dashboard/dashboard';
+import {DeviceActivateComponent} from './components/device-activate/device-activate';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {LoginComponent} from './components/login/login';
@@ -34,6 +35,7 @@ import {User} from './services/user';
         AccountFormComponent,
         AppComponent,
         DashboardComponent,
+        DeviceActivateComponent,
         LoginComponent,
         NavigationComponent,
         PageNotFoundComponent,

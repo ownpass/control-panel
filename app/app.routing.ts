@@ -1,6 +1,7 @@
 import {AccountComponent} from './components/account/account';
 import {AccountFormComponent} from './components/account-form/account-form';
 import {DashboardComponent} from './components/dashboard/dashboard';
+import {DeviceActivateComponent} from './components/device-activate/device-activate';
 import {LoginComponent}   from './components/login/login';
 import {ModuleWithProviders} from '@angular/core';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found';
@@ -42,6 +43,13 @@ const appRoutes: Routes = [
         component: DashboardComponent,
         data: {
             'name': 'dashboard'
+        }
+    },
+    {
+        path: 'device/activate/:code',
+        component: DeviceActivateComponent,
+        data: {
+            'name': 'device-activate'
         }
     },
     {

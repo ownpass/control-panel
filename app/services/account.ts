@@ -1,23 +1,13 @@
-import {Api} from '../services/api';
-import {AccountInterface} from '../interfaces/account';
-import {Config} from './config';
-import {Injectable} from '@angular/core';
-import {LocalStorageToken} from '../interfaces/localstorage-token';
-import {Http, Headers} from '@angular/http';
-import {OAuth} from './oauth';
-import {Observable} from 'rxjs/Observable';
-import {Router} from '@angular/router';
+import {Api} from "../services/api";
+import {AccountInterface} from "../interfaces/account";
+import {Injectable} from "@angular/core";
 import {AccountEntity} from "../entity/account";
 
 @Injectable()
 export class Account {
     private url: string = '/account';
 
-    constructor(private config: Config,
-                private api: Api,
-                private http: Http,
-                private oAuth: OAuth,
-                private router: Router) {
+    constructor(private api: Api) {
     }
 
     delete = (account: AccountInterface) => {

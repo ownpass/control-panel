@@ -1,6 +1,6 @@
 # OwnPass control panel
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Dependency status][david-dm-image]][david-dm-url] [![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url]
+[![Build Status](https://travis-ci.org/ownpass/control-panel.svg?branch=master)](https://travis-ci.org/ownpass/control-panel) [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Dependency status][david-dm-image]][david-dm-url] [![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url]
 
 ## Installation
 

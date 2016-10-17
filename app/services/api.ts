@@ -61,7 +61,7 @@ export class Api {
         return headers;
     }
 
-    delete(path: string) {
+    delete(path: string): any {
         let token: LocalStorageToken = this.oAuth.getToken();
 
         if (token.access_token === '') {
@@ -77,7 +77,7 @@ export class Api {
         });
     }
 
-    get = (path: string) => {
+    get(path: string): any {
         let token: LocalStorageToken = this.oAuth.getToken();
 
         if (token.access_token === '') {
@@ -93,7 +93,7 @@ export class Api {
         });
     }
 
-    post = (path: string, params: any) => {
+    post(path: string, params: any): any {
         let token: LocalStorageToken = this.oAuth.getToken();
 
         if (token.access_token === '') {
@@ -109,7 +109,7 @@ export class Api {
         });
     }
 
-    put = (path: string, params: any) => {
+    put(path: string, params: any): any {
         let token: LocalStorageToken = this.oAuth.getToken();
 
         if (token.access_token === '') {

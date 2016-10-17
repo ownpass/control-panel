@@ -1,0 +1,19 @@
+language: node_js
+
+node_js:
+  - 6
+  - 5
+
+# This triggers builds to run on the new TravisCI infrastructure.
+# See: http://docs.travis-ci.com/user/workers/container-based-infrastructure/
+sudo: false
+
+install:
+  - npm install --dev
+
+script:
+  - npm test
+
+notifications:
+  email: false
+  irc: "irc.freenode.org#ownpass"

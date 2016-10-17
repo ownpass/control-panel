@@ -1,0 +1,19 @@
+{
+    "name": "OwnPass",
+    "short_name": "OwnPass",
+    "description": "Self hosted, open source password management.",
+    "lang": "en-US",
+    "dir": "ltr",
+    "start_url": "/?utm_source=web_app_manifest",
+    "scope": "/",
+    "display": "browser",
+    "orientation": "landscape",
+    "background_color": "#fff",
+    "theme_color": "#f00",
+    "related_applications": [
+        {
+            "platform": "web",
+            "url": "https://ownpass.github.io"
+        }
+    ]
+}

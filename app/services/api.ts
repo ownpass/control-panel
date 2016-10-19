@@ -16,9 +16,12 @@ export class Api {
                 private oAuth: OAuth,
                 private router: Router,
                 private localStorage: LS) {
+        this.username = this.localStorage.get('current-user');
     }
 
     setUsername(username: string): void {
+        this.localStorage.set('current-user', username);
+
         this.username = username;
     }
 
@@ -54,6 +57,7 @@ export class Api {
         headers.append('Content-Type', 'application/json');
 
         let deviceId = this.getDeviceId(this.username);
+
         if (deviceId) {
             headers.append('X-OwnPass-Device', deviceId);
         }

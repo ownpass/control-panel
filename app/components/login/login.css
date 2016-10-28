@@ -19,7 +19,7 @@ h2 {
     margin: 0;
     height: 50px;
     padding: 0;
-    background: #f00;
+    background: #15B588;
     line-height: 50px;
     text-indent: 20px;
     color: #fff;
@@ -33,14 +33,14 @@ label {
 }
 
 .error {
-    color: red;
+    color: #15B588;
     font-size: 12px;
     margin-top: 4px;
 }
 
 input[type="text"].has-error,
 input[type="password"].has-error {
-    border-color: red;
+    border-color: #15B588;
 }
 
 input[type="text"],
@@ -62,7 +62,7 @@ input[type="password"] {
     display: inline-block;
     height: 40px;
     width: 200px;
-    background: red;
+    background: #15B588;
     border: none 0;
     border-radius: 5px;
     text-align: center;
@@ -74,5 +74,5 @@ input[type="password"] {
 .submit button:hover,
 .submit button:focus,
 .submit button:active {
-    background: #d00;
+    background: #11826D;
 }

@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
+import { ListView } from '../../services/list-view';
 import {Title} from '@angular/platform-browser';
 import {User} from '../../services/user';
 
@@ -17,7 +18,8 @@ export class DashboardComponent {
     constructor(
         private userService: User,
         private router: Router,
-        private title: Title
+        private title: Title,
+        public view: ListView
     ) {
         title.setTitle('OwnPass Dashboard');
 
@@ -27,8 +29,13 @@ export class DashboardComponent {
                 this.user = user
             },
             error => {
+                // TODO Http interceptor
                 if (error.status === 401) {
                     this.router.navigateByUrl('login');
+                }
+                if (error.status === 403) {
+                    //console.log('device');
+                    this.router.navigateByUrl('device/inactive');
                 }
             }
         );

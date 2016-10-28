@@ -1,5 +1,6 @@
 import {AccountComponent} from './components/account/account';
 import {AccountFormComponent} from './components/account-form/account-form';
+import {ActivateDeviceComponent} from './components/activate-device/activate-device';
 import {DashboardComponent} from './components/dashboard/dashboard';
 import {DeviceActivateComponent} from './components/device-activate/device-activate';
 import {LoginComponent}   from './components/login/login';
@@ -43,6 +44,13 @@ const appRoutes: Routes = [
         component: DashboardComponent,
         data: {
             'name': 'dashboard'
+        }
+    },
+    {
+        path: 'device/inactive',
+        component: ActivateDeviceComponent,
+        data: {
+            'name': 'device-inactive'
         }
     },
     {

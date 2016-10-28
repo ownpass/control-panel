@@ -1,0 +1,20 @@
+ul.list div {
+    width: calc(33.333% - 80px);
+}
+
+ul.list div.status,
+ul.list div.role,
+ul.list div.actions {
+    width: 80px;
+    text-align: center;
+}
+
+.actions svg,
+.status svg {
+    width: 30px;
+    vertical-align: middle;
+}
+
+.actions a {
+    text-decoration: none;
+}

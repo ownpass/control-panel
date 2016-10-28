@@ -7,37 +7,57 @@
     </nav>
     
     <div class="content">
-        <div class="heading">OwnPass</div>
-        <h2>Accounts</h2>
-        <p>
-            <a routerLink="/accounts/create">Create Account</a>
-        </p>
+        <div class="heading"></div>
+        <div class="page-heading-section">
+            <h2>Accounts</h2>
+            <div class="page-tools">
+                <a routerLink="/accounts/create" title="Create a new account">
+                    <svg class="list-view" viewBox="0 0 1024 1024"><use xlink:href="icons.svg#person_add"></use></svg>                   
+                </a>
+                <a
+                    class="toggle-view"
+                    [class.grid]="view.isGrid"
+                    [class.list]="!view.isGrid"
+                    href="#"
+                    title="Toggle view" 
+                    (click)="view.toggleView($event)">
+                    <svg class="list-view" viewBox="0 0 1024 1024"><use xlink:href="icons.svg#view_list"></use></svg>
+                    <svg class="grid-view" viewBox="0 0 1024 1024"><use xlink:href="icons.svg#view_module"></use></svg>                   
+                </a>
+            </div>
+        </div>
+                
+        <hr>
 
-        <table>
-            <thead>
-                <th>ID</th>
-                <th>Name</th>
-                <th>E-mail</th>
-                <th>Role</th>
-                <th>Status</th>
-                <th>Options</th>
-            </thead>
-            <tbody>
-                <tr *ngFor="let account of accounts">
-                    <td>{{account.id}}</td>
-                    <td>{{account.name}}</td>
-                    <td><a href="mailto:{{account.email_address}}">{{account.email_address}}</a></td>
-                    <td>{{account.role}}</td>
-                    <td>{{account.status}}</td>
-                    <td>
-                        <a routerLink="/accounts/edit/{{account.id}}">Edit</a>
-                        -
-                        <a (click)="deleteAccount(account)" >Delete</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
+        <ul [class.grid]="view.isGrid" [class.list]="!view.isGrid">
+            <li class="header">
+                <div>ID</div>
+                <div>Name</div>
+                <div>E-mail</div>
+                <div class="role">Role</div>
+                <div class="status">Status</div>
+                <div class="actions">Options</div>
+            </li>
+            <li *ngFor="let account of accounts">
+                <div>{{ account.id }}</div>
+                <div>{{ account.name }}</div>
+                <div><a href="mailto:{{account.email_address}}">{{account.email_address}}</a></div>
+                <div class="role">{{ account.role }}</div>
+                <div class="status">
+                    <svg viewBox="0 0 1024 1024" title="{{ account.status }}">
+                        <use attr.xlink:href="icons.svg#{{ getStatusIcon(account.status) }}"></use>
+                    </svg>
+                </div>
+                <div class="actions">
+                    <a routerLink="/accounts/edit/{{account.id}}" title="Edit">
+                        <svg viewBox="0 0 1024 1024"><use xlink:href="icons.svg#mode_edit"></use></svg>
+                    </a>
+                    <a (click)="deleteAccount(account)"  title="Delete">
+                        <svg viewBox="0 0 1024 1024"><use xlink:href="icons.svg#delete"></use></svg>
+                    </a>
+                </div>
+            </li>
+        </ul>
         <p>
             <a routerLink="/accounts/create">Create Account</a>
         </p>

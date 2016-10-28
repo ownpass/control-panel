@@ -1,13 +1,17 @@
-import {AccountInterface} from '../../interfaces/account';
-import {AccountEntity} from '../../entity/account';
-import {Account} from '../../services/account';
-import {Component} from '@angular/core';
-import {Router} from '@angular/router';
-import {Title} from '@angular/platform-browser';
+import { AccountInterface } from '../../interfaces/account';
+import { AccountEntity } from '../../entity/account';
+import { Account } from '../../services/account';
+import { Component } from '@angular/core';
+import { ListView } from '../../services/list-view';
+import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'ownpass-account',
-    styleUrls: ['app/components/dashboard/dashboard.css'],
+    styleUrls: [
+        'app/components/dashboard/dashboard.css',
+        'app/components/account/account.css'
+    ],
     templateUrl: 'app/components/account/account.html'
 })
 
@@ -19,7 +23,8 @@ export class AccountComponent {
     constructor(
         private accountService: Account,
         private router: Router,
-        private title: Title
+        private title: Title,
+        public view: ListView
     ) {
         title.setTitle('OwnPass Accounts');
 
@@ -75,6 +80,21 @@ export class AccountComponent {
                 // TODO: Remove the row from HTML
             }
         );
+    }
+
+    getStatusIcon(account: AccountInterface) {
+        var icons = {
+            'Active': 'done',
+            'Inactive': 'block',
+            'Invited': 'mail_outline',
+        };
+        if (account.status !== undefined) {
+            return icons[account.status];
+        } else {
+            return 'help_outline';
+        }
+
+        
     }
 
     // TODO Fix this

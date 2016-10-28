@@ -7,8 +7,29 @@
     </nav>
 
     <div class="content">
-        <div class="heading">OwnPass</div>
-        <h2>Welcome {{ user.name }}!</h2>
+        <div class="heading"></div>
+        <div class="page-heading-section">
+            <h2>Sites</h2>
+            <div class="page-tools">
+                <!-- TODO add path -->
+                <a routerLink="/accounts/create">
+                    <svg class="list-view" viewBox="0 0 1024 1024"><use xlink:href="icons.svg#note_add"></use></svg>                   
+                </a>
+                <a
+                    class="toggle-view"
+                    [class.grid]="view.isGrid"
+                    [class.list]="!view.isGrid"
+                    href="#"
+                    title="Toggle view" 
+                    (click)="view.toggleView($event)">
+                    <svg class="list-view" viewBox="0 0 1024 1024"><use xlink:href="icons.svg#view_list"></use></svg>
+                    <svg class="grid-view" viewBox="0 0 1024 1024"><use xlink:href="icons.svg#view_module"></use></svg>                   
+                </a>
+            </div>
+        </div>
+        <hr >
+        <h3>Welcome {{ user.name }}!</h3>
+        <hr >
         <ownpass-vault></ownpass-vault>
     </div>
 </div>

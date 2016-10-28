@@ -5,7 +5,7 @@ ul {
 
 li {
     display: block;
-    border-bottom: 1px solid rgba(0,0,0,.5);
+    border-bottom: 1px solid rgba(0,0,0,.1);
 }
 a {
     display: block;
@@ -18,7 +18,7 @@ a {
 }
 
 a:hover {
-    background: #555;
+    background: #11826D;
 }
 
 svg {
@@ -40,13 +40,6 @@ span {
     transition: transform 0.25s ease-in-out;
 }
 
-/* Finetune icons */
-li.profile a svg,
-li.accounts a svg,
-li.logout a svg,
-li.passwords a svg {
-    transform: rotate(180deg) translateY(5px);
-}
 
 /* Collapse buttons animation & transition */
 .open li.collapse svg {
@@ -64,9 +57,17 @@ li.passwords a svg {
         transition: all .5s;
     }
 
+    .open li.collapse svg {
+        transform: translate(0, -6px) rotate(180deg);
+    }
+    
+    .open li.collapse a span {
+        display: none;
+    }
+
     ul:not(.open) .collapse {
         margin-left: 700px;
-        background: #da4b4b;
+        background: #405C6F;
         height: 50px;
         width: 60px;
         overflow: hidden;

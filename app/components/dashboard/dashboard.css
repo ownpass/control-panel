@@ -10,11 +10,15 @@ h2 {
 .heading {
     height: 50px;
     padding: 0;
-    background: #f00;
+    background: #00263E;
     line-height: 50px;
     margin: -20px -20px 20px -20px;
     text-indent: 20px;
     color: #fff;
+    position: relative;
+    font-size: 30px;
+    background: url('/assets/images/ownpass-logo.png') 20px center no-repeat #00263E;
+    background-size: auto 70%;
 }
 
 .mainmenu,
@@ -26,7 +30,7 @@ h2 {
 
 .mainmenu {
     width: 60px;
-    background: #3C4A54;
+    background: #15B588;
     overflow: hidden;
     position: absolute;
     transition: width .25s ease-in-out;
@@ -55,6 +59,7 @@ h2 {
         left: -700px;
         overflow: visible;
         transition: left .5s;
+        z-index: 1;
     }
     
     .content {
@@ -63,6 +68,7 @@ h2 {
 
     .heading {
         margin-left: 40px;
+        z-index: 2;
     }
 
     .open.mainmenu {

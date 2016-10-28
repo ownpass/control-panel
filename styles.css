@@ -12,3 +12,136 @@ body {
   font-family: 'Rokkitt', serif;
   font-size: 22px;
 }
+
+/* Finetune icons */
+svg {
+    transform: rotateX(180deg) translateY(5px);
+}
+
+/* Lists general */
+ul.list,
+ul.grid {
+    margin: 0 0 2em 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* List view */
+ul.list {
+    border: 2px solid #405c6f;
+    overflow: auto; /* for mobile */
+}
+
+ul.list li {
+    width: 100%;
+    overflow: auto;
+    min-width: 600px; /* for mobile */
+}
+
+ul.list .header {
+    font-weight: bold;
+    background: #405C6F;
+    color: #fff;
+    line-height: 35px;
+}
+
+ul.list div {
+    box-sizing: border-box;
+    float: left;
+    padding: 5px;
+    width: 25%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+ul.list li:nth-child(odd):not(.header) {
+    background: #eef6ff;
+}
+
+ul.list li:not(.header):hover {
+    background: #eee;
+}
+
+
+
+/* Grid view */
+ul.grid {
+    font-size: 0;
+}
+
+ul.grid li {
+    display: inline-block;
+    vertical-align: top;
+    width: 220px;
+    border: 2px solid #405c6f;
+    font-size: 1.2rem;
+    margin: 0 20px 20px 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+@media screen and (max-width: 1200px) {
+    ul.grid li {
+        width: calc(25% - 20px);
+    }
+}
+@media screen and (max-width: 940px) {
+    ul.grid li {
+        width: calc(33.333% - 20px);
+    }
+}
+@media screen and (max-width: 650px) {
+    ul.grid li {
+        width: calc(50% - 20px);
+    }
+}
+@media screen and (max-width: 480px) {
+    ul.grid li {
+        width: 100%
+    }
+}
+
+ul.grid li.header {
+    display: none;
+}
+
+
+/* Tools */
+.page-heading-section {
+    overflow: hidden;
+}
+.page-heading-section h2 {
+    float: left;
+}
+
+.page-heading-section .page-tools {
+    float: right;
+}
+.page-heading-section .page-tools a {
+    height: 42px;
+    background: #405C6F;
+    display: inline-block;
+    vertical-align: middle;
+    width: 50px;
+    text-align: center;
+    text-indent: -2px;
+    line-height: 42px;
+}
+.page-heading-section .page-tools a:hover {
+    background: #00263E;
+}
+.page-heading-section .page-tools svg {
+    width: 40px;
+    vertical-align: middle;
+    fill: #fff;
+}
+.page-heading-section .page-tools .toggle-view svg {
+    display: none;
+}
+.page-heading-section .page-tools .toggle-view.grid .list-view {
+    display: inline-block;
+}
+
+.page-heading-section .page-tools .toggle-view.list .grid-view {
+    display: inline-block;
+}

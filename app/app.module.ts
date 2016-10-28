@@ -1,6 +1,7 @@
 import {Account} from './services/account';
 import {AccountComponent} from './components/account/account';
 import {AccountFormComponent} from './components/account-form/account-form';
+import {ActivateDeviceComponent} from './components/activate-device/activate-device';
 import {Api} from './services/api';
 import {AppComponent} from './components/app';
 import {appRoutingProviders, routing}  from './app.routing';
@@ -11,6 +12,7 @@ import {Device} from './services/device';
 import {DeviceActivateComponent} from './components/device-activate/device-activate';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import {ListView} from './services/list-view';
 import {LoginComponent} from './components/login/login';
 import {LS} from './services/localstorage';
 import {NavigationComponent} from './components/navigation/navigation';
@@ -42,7 +44,8 @@ import {User} from './services/user';
         NavigationComponent,
         PageNotFoundComponent,
         ProfileComponent,
-        VaultComponent
+        VaultComponent,
+        ActivateDeviceComponent,
     ],
     bootstrap: [
         AppComponent
@@ -62,7 +65,8 @@ import {User} from './services/user';
         LS,
         OAuth,
         Vault,
-        User
+        User,
+        ListView
     ],
 })
 

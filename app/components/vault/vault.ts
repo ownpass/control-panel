@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Vault} from '../../services/vault'
-import {LS} from '../../services/localstorage';
+import { ListView } from '../../services/list-view';
 
 @Component({
     selector: 'ownpass-vault',
@@ -11,16 +11,8 @@ import {LS} from '../../services/localstorage';
 export class VaultComponent {
     public result;
     public vault;
-    private localStorageKey:string = 'ownpassView';
-
-    public getView = () => {
-        let ls = this.ls.get(this.localStorageKey);
-        return ls === 'grid';
-    }
-
-    public isGrid:boolean = this.getView();
-
-    constructor(private vaultService: Vault, private ls: LS) {
+    
+    constructor(private vaultService: Vault, public view: ListView) {
         this.result = this.vaultService.get()
             .subscribe(
                 response => {
@@ -29,9 +21,5 @@ export class VaultComponent {
                 });
     }
 
-    public toggleView = (event: Event) => {
-        event.preventDefault();
-        this.isGrid = !this.isGrid;
-        this.ls.set(this.localStorageKey, this.isGrid ? 'grid' : 'list');
-    }
+
 }

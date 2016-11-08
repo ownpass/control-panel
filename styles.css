@@ -145,3 +145,23 @@ ul.grid li.header {
 .page-heading-section .page-tools .toggle-view.list .grid-view {
     display: inline-block;
 }
+
+
+/* */
+.edit-overlay {
+    position: absolute;
+    height: calc(100vh - 50px);
+    top: 50px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.9);
+    width: calc(100% - 60px);
+    overflow: auto;
+    transform: translateY(100vh) scale(0);
+    transition: transform .4s ease-in-out;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.edit-overlay.show {
+    transform: translateY(0) scale(1);
+}

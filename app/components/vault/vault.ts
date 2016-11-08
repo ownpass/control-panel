@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {Vault} from '../../services/vault'
+import { Component, Input } from '@angular/core';
+import { Vault } from '../../services/vault'
 import { ListView } from '../../services/list-view';
 
 @Component({
@@ -9,6 +9,8 @@ import { ListView } from '../../services/list-view';
 })
 
 export class VaultComponent {
+    @Input() editCredential;
+
     public result;
     public vault;
     
@@ -20,6 +22,5 @@ export class VaultComponent {
                     this.result = response;
                 });
     }
-
 
 }

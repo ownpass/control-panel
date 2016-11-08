@@ -14,6 +14,7 @@ export class DashboardComponent {
     that = this;
     public navigationStatus: boolean = false;
     public user;
+    public selected = {};
 
     constructor(
         private userService: User,
@@ -44,5 +45,9 @@ export class DashboardComponent {
 
     public toggleNavigation = () => {
         this.navigationStatus = !this.navigationStatus;
+    }
+
+    public editCredential = (selected) => {
+        this.selected = selected;
     }
 }

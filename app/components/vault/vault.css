@@ -5,6 +5,7 @@ ul {
     list-style: none;
 }
 
+li,
 .password {
     cursor: pointer;
     -webkit-user-select: none;

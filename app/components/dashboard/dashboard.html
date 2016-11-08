@@ -12,7 +12,7 @@
             <h2>Sites</h2>
             <div class="page-tools">
                 <!-- TODO add path -->
-                <a routerLink="/accounts/create">
+                <a (click)="selected = {title: 'new'}">
                     <svg class="list-view" viewBox="0 0 1024 1024"><use xlink:href="icons.svg#note_add"></use></svg>                   
                 </a>
                 <a
@@ -30,6 +30,7 @@
         <hr >
         <h3>Welcome {{ user.name }}!</h3>
         <hr >
-        <ownpass-vault></ownpass-vault>
+        <ownpass-vault [editCredential]="editCredential"></ownpass-vault>
+        <credential-form [credential]="selected"></credential-form>
     </div>
 </div>

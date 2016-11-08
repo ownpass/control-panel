@@ -7,6 +7,7 @@ import {AppComponent} from './components/app';
 import {appRoutingProviders, routing}  from './app.routing';
 import {BrowserModule} from '@angular/platform-browser';
 import {Config} from './services/config';
+import {CredentialFormComponent} from './components/credential-form/credential-form';
 import {DashboardComponent} from './components/dashboard/dashboard';
 import {Device} from './services/device';
 import {DeviceActivateComponent} from './components/device-activate/device-activate';
@@ -46,6 +47,7 @@ import {User} from './services/user';
         ProfileComponent,
         VaultComponent,
         ActivateDeviceComponent,
+        CredentialFormComponent
     ],
     bootstrap: [
         AppComponent

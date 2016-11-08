@@ -5,7 +5,7 @@
         <div>Password</div>
         <div>Website</div>
     </li>
-    <li *ngFor="let row of vault">
+    <li *ngFor="let row of vault" (click)="editCredential(row)">
         <div>{{ row.title }}</div>
         <div>{{ row.identity }}</div>
         <div class="password" [hidden]="row.showPass" (click)="row.showPass = true">********</div>

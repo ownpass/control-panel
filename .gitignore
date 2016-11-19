@@ -1,7 +1,10 @@
+.tscache/
+app/.baseDir.ts
+app/**/*.js
+app/**/*.js.map
+build/
 config.json
 node_modules/
 npm-debug.log
 typings/
-app/**/*.js
-app/**/*.js.map
 vendor.js

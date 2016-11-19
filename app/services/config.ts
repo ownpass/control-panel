@@ -8,7 +8,7 @@ export class Config {
      *
      * @type {string}
      */
-    private static url: string = 'config.json';
+    private static url: string = 'assets/config.json';
 
     /**
      * The client id used to communicate with the API.

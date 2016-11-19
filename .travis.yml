@@ -22,7 +22,7 @@ script:
 
 after_success:
 - "./deploy.sh"
-- curl --ftp-create-dirs -T control-panel-$TRAVIS_BRANCH.zip -u $FTP_USER:$FTP_PASSWORD ftp://$FTP_SERVER
+- curl --ftp-create-dirs -T control-panel-$TRAVIS_BRANCH.tar.gz -u $FTP_USER:$FTP_PASSWORD ftp://$FTP_SERVER
 
 notifications:
   email: false

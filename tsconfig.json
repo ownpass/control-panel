@@ -21,7 +21,7 @@
         "noImplicitReturns": true,
         "noImplicitUseStrict": false,
         "noFallthroughCasesInSwitch": true,
-        "outDir": "./build/compiled-ts/",
+        "outDir": "app/",
         "typeRoots": [
             "./node_modules/@types",
             "./node_modules"

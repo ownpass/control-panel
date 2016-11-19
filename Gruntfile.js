@@ -3,16 +3,16 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         clean: {
             build: [
+                'assets/js/ownpass.browserify.js',
                 'assets/js/ownpass.js',
-                'assets/js/ownpass.min.js',
-                'build/'
+                'assets/js/ownpass.min.js'
             ]
         },
         concat: {
             dist: {
                 dest: 'assets/js/ownpass.js',
                 src: [
-                    'build/ownpass-browserify.js',
+                    'assets/js/ownpass.browserify.js',
                     'node_modules/core-js/client/shim.min.js',
                     'node_modules/zone.js/dist/zone.js',
                     'node_modules/reflect-metadata/Reflect.js',
@@ -25,7 +25,7 @@ module.exports = function (grunt) {
             }
         },
         exec: {
-            browserify: 'browserify -s build/compiled-ts/main.js > build/ownpass-browserify.js',
+            browserify: 'browserify -s app/main.js > assets/js/ownpass.browserify.js',
             deploy: './deploy.sh'
         },
         jshint: {

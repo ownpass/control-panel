@@ -1,19 +1,29 @@
 language: node_js
 
 node_js:
-  - 6
-  - 5
+- 6
+- 5
 
 # This triggers builds to run on the new TravisCI infrastructure.
 # See: http://docs.travis-ci.com/user/workers/container-based-infrastructure/
 sudo: false
 
+env:
+  global:
+  - secure: r3QOCZGQWeAIn18brArDDyi8kZxu8o5xGu8GsTOV3l+Fe2Li4nNQITH+9dt2BLXULSyiV6wmOoHgZYvp2cgyOXBN1LSle+PYlg3EMF322ZQ+D5MtEiqu/yTDlh/+APm+oL6fN+RNWQbkejufeQs5iW0rhO3UiUmly+fjMvIDweI0wKUHvOXt02CwvYk2apxHNac05BLBV2E3YRpu91STbwLNWBNpe3a7Qu3FC5D065OqmCQihaK040sJJgfh590LuAfP0W6CyD8Us6sCR6a63Lx11bFXrb45Wml9z+q8xWAmyps+IXAi/KhWn8Sk0cIjpVwP3gSFBPBdQ9GbtcZk7CkClabgmHada/QAFFXpkqvGwlU/Pfaywxq50l0m6A26vln6Fwc8L9hvRiTD3VAyH+yIQMK0eIvCwAfDGgdiE8EIxpM2utfoI4tsf3RbPWNTSYKt0cMuNwfqAyOvCFAkrr5btf3bgujQSEFgx7xjhQpV/y7Nx8v4pDCH3xAG0pf7IB1UWa4k4DH/6UiT3LFGd7O1v0vky+gAnoT7hqqTEv6hwoEQrft9p4totL6ZqNmeZ9HlvU4dovRjstC2A0lwrSXNVlgMcjwQ2xBZEKmjRYZjXE/9BY8sBz8jyuUyDtzsITtLPdjqF8s1S03101k3FVgP2cSPOKpuYhhTt/DKGwY=
+  - secure: kczskJYVCJOHd0Mq7CqOk4XUwEPk0N1oH3lxH5L4yUjennhwBzZtRUwuuEXW7Kuwxea+hMo3z2tQUr726sERhIwjalqiTeuQYPoOcNDSNwyUjCL4UfUIStNOMwd4m+y/Z45e+osGQ3MUJz6nyVVa9Lg//EgxW1NIPm/lN3gKhwGCmmgq7QiA+6jLg+f2CT9KEijNvp72Z5Ip+8B6VWGCxN+xgozr6EVInGw2+Pw2xjI4UVidLc1yBUn/m8IlYVNsW8OO4iRez9sCqAKCT2NnUIcJIpe25uszxSlz5PcKhCkLfhOLmQpjTljuozwkSX/IT9FSkBZ918AeLF/PBZIgvWzJGPu4+p7InHWnUCDxtjNshKy79fb/EILLX2LefQYUIPjrtwbTqPOj/AjH018XOHjCII0NOmblnGzWiBj9Tfe7z6brBzex3/taeuXiUcH9RRVOnAe3w8qdp1dU/V242XA1M/KB2DGhYwq+MPJFBn5/ccNi3EyETrY3bV5eLKhh9dpvawnmgTDkLDrHFT1CW9GWXLhD+tqK315+fRNgryQPyZdMlstIVaYjFkLjNma/3d49K3Imh3b1Jkj9BTk2u7c7oAJX0P0lAOgu3k5dn8qipGiZpxJc2vcCmvDNcDFwuJcjczZC42QXdtIo1gdPNtoXkHv7/PzfibTC54ZXdSM=
+  - secure: g6vxSRWjHaPWz45A2iHRF/yow2+7GBZCsxzEqtVvlLr6sKuc71Y2mNJB3QkOkz3VMMaZlVecNJC25e18lCNAlBh2zt1BMwN6z7B7D/IGNM8txSqNw7+v4t4b2HfKCPHwXOAEQ50SK/CCXSk8bq2Ru0wqEuXHF8cNDkp14blGb2ifKntIW83Wfx32MZ/ErT1tpdOm3eTPlDgW/bbgTtw0aLlWw1l3cC9PP/U4l1saNSEDzBJ21HADEJeVGYgup43T21RSziitp8SK3YsrjAy+1jy4TF9Lw8pKSgiu85A2mQzjqbhXyKWXrRdq7gC9pYVsULSqg9Y6bo3Xdlxr7RuyY0gH2you2bKZfmmFjgz7BieYcn65pFsoRoHTWG5OQsgpDLRG2KKnSUvW7GTNVSH7uSDyc7iVVtGK4Aug+FbJUHd3mS0XVFneslMCTv7P4FzKeI6toEyojdUa6ZjTyhPndJqvhmXVIHFlTM4t72xZOga+uyCVZeph5dBT8A6sEWOl1jbQjnnz1sx5g93culnI1D3HlZhQbtxZMi/eIy2Q12CK2txnpH0VwDYxlZzt1I9y3c+6LTU9BakZ9B5P+c7WqfIJuUUZp1KVruuKjWhoO4KGM5URYxha3BQjgU6MLmjClfdwIxwl0hnHw61lwTyqL+lfIIvrD8/lr0LJn3BU+r8=
+
 install:
-  - npm install --dev
+- npm install --dev
 
 script:
-  - npm test
+- npm test
+
+after_success:
+- ./deploy.sh
+- curl --ftp-create-dirs -T ownpass-control-panel-master.zip -u $FTP_USER:$FTP_PASSWORD ftp://$FTP_SERVER
 
 notifications:
   email: false
-  irc: "irc.freenode.org#ownpass"
+  irc: irc.freenode.org#ownpass

@@ -13,7 +13,7 @@ if [ "$TRAVIS_BRANCH" != "master" ] && [ "$TRAVIS_TAG" == "" ]; then
 fi
 
 CURRENT_DIR=`pwd`
-TARGET_PATH="$CURRENT_DIR/ownpass-control-panel-$TRAVIS_BRANCH.zip"
+TARGET_PATH="$CURRENT_DIR/control-panel-$TRAVIS_BRANCH.zip"
 BUILD_DIR="$CURRENT_DIR/build/deploy/"
 
 # Remove previously created builds

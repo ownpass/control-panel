@@ -1,7 +1,19 @@
 #!/usr/bin/env bash
 
+# We don't deploy pull requests, there is no need
+if [ "$TRAVIS_PULL_REQUEST" == "1" ]; then
+    echo "This is a pull request so we don't have to deploy."
+    exit 0
+fi
+
+# We only deploy the master branch and tags
+if [ "$TRAVIS_BRANCH" != "master" ] && [ "$TRAVIS_TAG" == "" ]; then
+    echo "This is not a tag and it's not the master branch either so there is nothing to deploy"
+    exit 0
+fi
+
 CURRENT_DIR=`pwd`
-TARGET_PATH="$CURRENT_DIR/ownpass-control-panel-master.zip"
+TARGET_PATH="$CURRENT_DIR/ownpass-control-panel-$TRAVIS_BRANCH.zip"
 BUILD_DIR="$CURRENT_DIR/build/deploy/"
 
 # Remove previously created builds

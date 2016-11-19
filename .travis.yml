@@ -21,7 +21,8 @@ script:
 - npm test
 
 after_success:
-- "./deploy.sh"
+- grunt
+- grunt deploy
 - curl --ftp-create-dirs -T control-panel-$TRAVIS_BRANCH.tar.gz -u $FTP_USER:$FTP_PASSWORD ftp://$FTP_SERVER
 
 notifications:

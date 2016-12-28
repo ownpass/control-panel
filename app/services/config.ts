@@ -32,6 +32,13 @@ export class Config {
     private deviceDescription: string;
 
     /**
+     * The RSA public key.
+     *
+     * @type {string}
+     */
+    private devicePublicKey: string;
+
+    /**
      * The server url used to do requests to.
      *
      * @type {string}
@@ -73,6 +80,16 @@ export class Config {
         return this.deviceDescription;
     }
 
+
+    /**
+     * Gets the RSA public key.
+     *
+     * @returns {string}
+     */
+    public getDevicePublicKey(): string {
+        return this.devicePublicKey;
+    }
+
     /**
      * Gets the server url.
      *
@@ -93,6 +110,7 @@ export class Config {
                 this.clientId = response['client_id'];
                 this.deviceName = response['device_name'];
                 this.deviceDescription = response['device_description'];
+                this.devicePublicKey = response['public_key'];
                 this.serverUrl = response['server_url'];
 
                 resolve();

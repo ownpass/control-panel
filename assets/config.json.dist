@@ -2,5 +2,6 @@
     "server_url": "https://your-ownpass-url",
     "client_id": "control-panel",
     "device_name": "Control Panel",
-    "device_description": "The control panel application."
+    "device_description": "The control panel application.",
+    "public_key": "YOUR PUBLIC KEY HERE (RSA 4096 bit)"
 }

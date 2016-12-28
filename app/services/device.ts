@@ -34,7 +34,7 @@ export class Device {
         }).map(response => response.json());
     }
 
-    create = (name: string, description: string) => {
+    create = (name: string, description: string, publicKey: string) => {
         let token: LocalStorageToken = this.oAuth.getToken();
 
         if (token.access_token === '') {
@@ -49,7 +49,8 @@ export class Device {
 
         return this.http.post(this.config.getServerUrl() + '/device', JSON.stringify({
             'name': name,
-            'description': description
+            'description': description,
+            'public_key': publicKey
         }), {
             headers: headers,
         }).map(response => response.json());

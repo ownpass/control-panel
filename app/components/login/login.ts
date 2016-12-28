@@ -41,9 +41,11 @@ export class LoginComponent {
                         this.api.setUsername(model.username);
 
                         if (this.api.getDeviceId(model.username) === null) {
+                            console.log('geen device');
                             this.deviceService.create(
                                 this.config.getDeviceName(),
-                                this.config.getDeviceDescription()
+                                this.config.getDeviceDescription(),
+                                this.config.getDevicePublicKey(),
                             ).subscribe(
                                 response => {
                                     this.api.setDeviceId(model.username, response.id);
